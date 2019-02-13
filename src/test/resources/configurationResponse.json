@@ -1,0 +1,47 @@
+{
+    "ms": 
+            [{
+                    "msID": "SAMLms001",
+                    "msType": "SP_AP_IDP", 
+                    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqGKukO1De7zhZj6+H0qtjTkVxwTCpvKe4eCZ0FPqri0cb2JZfXJ/DgYSF6vUpwmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/3j+skZ6UtW+5u09lHNsj6tQ51s1SPrCBkedbNf0Tp0GbMJDyR4e9T04ZZwIDAQAB",
+                    "publishedAPI": 
+                            [{
+                                    "apiClass": "AP",
+                                    "apiCall": "DCARequest",
+                                    "apiConnectionType": "post",
+                                    "url": "https://example.com/esmo/SAMLms/001/DCARequest"
+                                },
+                                {
+                                    "apiClass": "SP",
+                                    "apiCall": "AuthnResponse",
+                                    "apiConnectionType": "post",
+                                    "url": "https://example.com/esmo/SAMLms/001/SP_AuthnResponse"
+                                },
+                                {
+                                    "apiClass": "IdP",
+                                    "apiCall": "AuthnRequest",
+                                    "apiConnectionType": "post",
+                                    "url": "https://example.com/esmo/SAMLms/001/IDP_AuthnRequest"
+                                }
+                            ]
+                },
+                {
+                    "msID": "ACMms001",
+                    "msType": "ACM",
+                    "rsaPublicKeyBinary": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkvZf4Lm7dqp17tk/ICI+cCilI3yLfQraHy4pxFYDNn29l9eHnYRFnN9jBKKvOzSxf2zQkigNcHhIi96s7G4/xPL3rVaYepp/xfCKn5vkZeqg1PFOE0HqDKCnIbLxNdnHYDLICQrd1PRTdFHnwRpLouF6B3PCZpQL5XxX3WFzg2KZ2U1NIdVLJjWb3AY1SJ4kIYAOIwn6AZQPum4i5G4M9QQj3KGl164007TUx27rxzBVILpm+knxYjUiipqZ/5kiDdTxYBPR0qDVIhSl3hk9RhSI95s7unrll8rb3E8w1ORrfTQNg1UlpGgww3jZi3GLScLEK3ghwg5H5gL/2SSiEwIDAQAB",
+                    "publishedAPI": 
+                            [{
+                                    "apiClass": "ACM",
+                                    "apiCall": "DSARequest",
+                                    "apiConnectionType": "post",
+                                    "url": "https://example.com/esmo/ACMms/001/DSARequest"
+                                },
+                                {
+                                    "apiClass": "ACM",
+                                    "apiCall": "DSAResponse",
+                                    "apiConnectionType": "post",
+                                    "url": "https://example.com/esmo/ACMms/001/DSAResponse"
+                                }]
+                }
+            ]
+}

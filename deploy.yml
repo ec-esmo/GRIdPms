@@ -1,0 +1,44 @@
+# requires a memcached instance!
+
+version: '2'
+services:
+    loginWebApp:
+        container_name: loginWebApp
+        image: endimion13/eidas-gr-loginwebapp:2
+        expose:
+            - 8090
+        ports:
+            - 8090:8090
+        environment:
+            - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+            - SP_FAIL_PAGE=http://212.205.82.117:9095/error
+            - SP_LOGO=http://www.elta.gr/Portals/0/elta.jpg
+            - ISS_URL=http://212.205.82.117:8080/ISS2/ValidateToken
+            - SP_ID=sp3
+            #       - SP_SECRET=secret
+            #       - AUTH_DURATION=3800
+            - CLIENT_ID=862q17aahz1z6l
+            - LINKED_IN_SECRET=lio9xsPHhLAU3IkC
+            - REDIRECT_URI=http://212.205.82.117:9093/linkedInResponse
+            - UAEGEAN_LOGIN=true
+            - LINKED_IN=true
+            - HTTP_HEADER=false
+            - ASYNC_SIGNATURE=true
+            - URL_ENCODED=true
+            - SESSION_MANAGER_URL=http://0.0.0.0:8090
+            - KEY_PASS=selfsignedpass
+            - STORE_PASS=keystorepass
+            - JWT_CERT_ALIAS=selfsigned
+            - HTTPSIG_CERT_ALIAS=selfsigned
+            - MEMCACHED_HOST=172.17.0.1
+            - MEMCACHED_PORT=11211
+            - ESMO_SERVICE_DESCRIPTION=UAegean Identity Provider
+            - ESMO_EXPOSE_URL=https://aegean.gr/esmo/gw/idp/authenticate
+            - ESMO_DEFAULT_NAME=UAegean Identity Provider
+            - ESMO_SUPPORTED_SIG_ALGORITHMS=RSA-SHA256
+            - ESMO_SUPPORTED_ENC_ALGORITHMS=RSA-SHA256
+            - ACM_URL=http://0.0.0.0:8090 
+        volumes:
+            - /configEidas:/configEidas
+            - /webappConfig:/webappConfig
+            - /zipcodesCertificates:/certificates
