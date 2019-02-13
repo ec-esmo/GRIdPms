@@ -47,6 +47,7 @@ import org.tomitribe.auth.signatures.Verifier;
  *
  * @author nikos
  */
+
 public class HttpSignatureServiceImpl implements HttpSignatureService {
 
     private Algorithm algorithm = Algorithm.RSA_SHA256;

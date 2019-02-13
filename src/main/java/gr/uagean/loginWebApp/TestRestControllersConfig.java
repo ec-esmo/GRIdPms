@@ -7,20 +7,17 @@ package gr.uagean.loginWebApp;
 
 import gr.uagean.loginWebApp.service.KeyStoreService;
 import gr.uagean.loginWebApp.service.ParameterService;
-import gr.uagean.loginWebApp.service.impl.HttpSignatureServiceImplLib;
 import gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl;
 import java.io.IOException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
-import java.security.spec.InvalidKeySpecException;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
-import gr.uagean.loginWebApp.service.HttpSignatureServiceOld;
 
 /**
  *
@@ -45,7 +42,6 @@ public class TestRestControllersConfig {
 ////        MSConfigurationService msConfigServ = new MSConfigurationsServiceImplSTUB();
 //        return new HttpSignatureServiceImplLib();
 //    }
-
     @Bean
     @Primary
     public KeyStoreService keyStoreService() throws KeyStoreException, IOException, NoSuchAlgorithmException, CertificateException, UnrecoverableKeyException {
@@ -55,8 +51,12 @@ public class TestRestControllersConfig {
         Mockito.when(paramServ().getParam("KEY_PASS")).thenReturn("selfsignedpass");
         Mockito.when(paramServ().getParam("STORE_PASS")).thenReturn("keystorepass");
         Mockito.when(paramServ().getParam("JWT_CERT_ALIAS")).thenReturn("selfsigned");
-        Mockito.when(paramServ().getParam("HTTPSIG_CERT_ALIAS")).thenReturn("selfsigned");
+        Mockito.when(paramServ().getParam("HTTPSIG_CERT_ALIAS")).thenReturn("1");
         Mockito.when(paramServ().getParam("ASYNC_SIGNATURE")).thenReturn("true");
+        Mockito.when(paramServ().getParam("SESSION_MANAGER_URL")).thenReturn("http://0.0.0.0:8090");
+        Mockito.when(paramServ().getParam("EIDAS_PROPERTIES")).thenReturn("FamilyName,FirstName");
+        Mockito.when(paramServ().getParam("ESMO_SUPPORTED_SIG_ALGORITHMS")).thenReturn("RSA");
+        Mockito.when(paramServ().getParam("ESMO_SUPPORTED_ENC_ALGORITHMS")).thenReturn("RSA");
         return new KeyStoreServiceImpl(paramServ());
     }
 }

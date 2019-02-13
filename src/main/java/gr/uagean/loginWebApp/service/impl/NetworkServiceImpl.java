@@ -35,12 +35,12 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import gr.uagean.loginWebApp.service.NetworkServiceOld;
 
 /**
  *
  * @author nikos
  */
+
 public class NetworkServiceImpl implements NetworkService {
 
     private HttpSignatureService sigServ;

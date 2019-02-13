@@ -21,14 +21,16 @@ import java.util.Base64;
 import java.util.HashMap;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
 /**
  *
  * @author nikos
  */
 @Service
-public class EntityMetadataServiceImpl  implements EsmoMetadataService {
+public class EntityMetadataServiceImpl implements EsmoMetadataService {
 
     private final KeyStoreService keyServ;
     private final HashMap<String, String> displayNames;
@@ -61,10 +63,8 @@ public class EntityMetadataServiceImpl  implements EsmoMetadataService {
     @Override
     public EntityMetadata getMetadata() throws IOException, KeyStoreException {
         // load file from /src/resources
-        ClassLoader classLoader = getClass().getClassLoader();
-        File inputFile = new File(classLoader
-                .getResource("/static/img/uaegeanI4m.png")
-                .getFile());
+        File inputFile = ResourceUtils.getFile("classpath:static/img/uaegeanI4m.png"); // new ClassPathResource("uaegeanI4m.png")
+//                .getFile();
         byte[] fileContent = FileUtils.readFileToByteArray(inputFile);
         String encodedImage = Base64
                 .getEncoder()

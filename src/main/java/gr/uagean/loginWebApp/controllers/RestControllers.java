@@ -19,10 +19,19 @@ import gr.uagean.loginWebApp.model.pojo.SessionMngrResponse;
 import gr.uagean.loginWebApp.model.pojo.UpdateDataRequest;
 import gr.uagean.loginWebApp.service.EidasPropertiesService;
 import gr.uagean.loginWebApp.service.EsmoMetadataService;
+import gr.uagean.loginWebApp.service.HttpSignatureService;
+import gr.uagean.loginWebApp.service.KeyStoreService;
+import gr.uagean.loginWebApp.service.NetworkService;
 import gr.uagean.loginWebApp.service.ParameterService;
+import gr.uagean.loginWebApp.service.impl.HttpSignatureServiceImpl;
+import gr.uagean.loginWebApp.service.impl.NetworkServiceImpl;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.Key;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -55,7 +64,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.thymeleaf.util.StringUtils;
-import gr.uagean.loginWebApp.service.NetworkServiceOld;
 
 /**
  *
@@ -74,8 +82,8 @@ public class RestControllers {
     @Autowired
     private ParameterService paramServ;
 
-    @Autowired
-    private NetworkServiceOld netServ;
+    private NetworkService netServ;
+    private KeyStoreService keyServ;
 
     @Autowired
     private EsmoMetadataService metadataServ;
@@ -102,6 +110,15 @@ public class RestControllers {
     final static String URL_ENCODED = "URL_ENCODED";
     final static String URL_PREFIX = "URL_PREFIX";
 
+    @Autowired
+    public RestControllers(KeyStoreService keyServ) throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException, UnsupportedEncodingException, InvalidKeySpecException, IOException {
+        this.keyServ = keyServ;
+        Key signingKey = this.keyServ.getSigningKey();
+        String fingerPrint = "7a9ba747ab5ac50e640a07d90611ce612b7bde775457f2e57b804517a87c813b";
+        HttpSignatureService httpSigServ = new HttpSignatureServiceImpl(fingerPrint, signingKey);
+        this.netServ = new NetworkServiceImpl(httpSigServ);
+    }
+
     @RequestMapping(value = "/metadata", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/xml"})
     public @ResponseBody
     String metadata() {
@@ -113,6 +130,7 @@ public class RestControllers {
     public ResponseEntity getSAMLToken(@RequestParam(value = "citizenCountry", required = true) String citizenCountry, @RequestParam(value = "IdPMSSession", required = true) String session) {
 
         String serviceProviderCountry = paramServ.getParam(SP_COUNTRY);
+        ObjectMapper mapper = new ObjectMapper();
         try {
             ArrayList<String> pal = new ArrayList();
             pal.addAll(propServ.getEidasProperties());
@@ -132,7 +150,7 @@ public class RestControllers {
 //                postParams.add(new NameValuePair("dataObject", eidasSession));
 //                postParams.add(new NameValuePair("variableName", "GR_eIDAS_IdP_Session"));
                 UpdateDataRequest updateReq = new UpdateDataRequest(esmoGWSession, "GR_eIDAS_IdP_Session", eidasSession);
-                SessionMngrResponse resp = netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json");
+                SessionMngrResponse resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
                 if (resp.getCode().toString().equals("OK")) {
                     // IdP Connector generates “external session identifier” for the authentication (e.g. eIDAS uuid) and stores it in the internal session by calling post, “/sm/updateSessionData”
                     return ResponseEntity.ok(data.getSaml());
@@ -153,6 +171,8 @@ public class RestControllers {
             HttpServletRequest request, HttpServletResponse response,
             RedirectAttributes redirectAttrs, @CookieValue(value = "localeInfo", required = false) String langCookie, Model model) {
 
+        ObjectMapper mapper = new ObjectMapper();
+
         LOG.debug("The node responeded with;");
         LOG.debug(samlResponse);
         String remoteAddress = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
@@ -170,7 +190,7 @@ public class RestControllers {
             List<NameValuePair> requestParams = new ArrayList();
             requestParams.add(new NameValuePair("varName", "GR_eIDAS_IdP_Session"));
             requestParams.add(new NameValuePair("varValue", eidasSession));
-            SessionMngrResponse resp = netServ.sendGet(sessionMngrUrl, "/sm/getSession", requestParams);
+            SessionMngrResponse resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSession", requestParams), SessionMngrResponse.class);
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
                 return "redirect:" + paramServ.getParam(SP_FAIL_PAGE);
@@ -178,7 +198,6 @@ public class RestControllers {
 
             //IdP Connector updates the session with the variables received from the user authentication by calling the SM, with post, “/sm/updateSessionData” twice
             //once to store the received attributes
-            ObjectMapper mapper = new ObjectMapper();
             AttributeSet receivedAttributes = AttributeSetFactory.makeFromEidasResponse("id", TypeEnum.Response, "issuer", "recipient", data.getResponseXML());
             String attributSetString = mapper.writeValueAsString(receivedAttributes);
             requestParams.clear();
@@ -186,7 +205,7 @@ public class RestControllers {
             requestParams.add(new NameValuePair("variableName", "dsResponse"));
             requestParams.add(new NameValuePair("sessionId", resp.getSessionData().getSessionId()));
             UpdateDataRequest updateReq = new UpdateDataRequest(resp.getSessionData().getSessionId(), "dsResponse", attributSetString);
-            resp = netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json");
+            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
 //            resp = netServ.sendPost(sessionMngrUrl, "/sm/updateSessionData", requestParams);
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
@@ -199,7 +218,7 @@ public class RestControllers {
 //            requestParams.add(new NameValuePair("sessionId", resp.getSessionData().getSessionId()));
 //            resp = netServ.sendPost(sessionMngrUrl, "/sm/updateSessionData", requestParams);
             updateReq = new UpdateDataRequest(resp.getSessionData().getSessionId(), "dsMetadata", mapper.writeValueAsString(metadataServ.getMetadata()));
-            resp = netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json");
+            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
                 return "redirect:" + paramServ.getParam(SP_FAIL_PAGE);
@@ -207,7 +226,7 @@ public class RestControllers {
             //IdP Connector generates a new security token to send to the ACM, by calling get “/sm/generateToken” 
             requestParams.clear();
             requestParams.add(new NameValuePair("sessionId", resp.getSessionData().getSessionId()));
-            resp = netServ.sendGet(sessionMngrUrl, "/sm/generateToken", requestParams);
+            resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/generateToken", requestParams), SessionMngrResponse.class);
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
                 return "redirect:" + paramServ.getParam(SP_FAIL_PAGE);
@@ -239,7 +258,7 @@ public class RestControllers {
 
         try {
             //calls SM, get /sm/validateToken, to validate the received token and get the sessionId
-            SessionMngrResponse resp = netServ.sendGet(sessionMngrUrl, "/sm/validateToken", getParams);
+            SessionMngrResponse resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/validateToken", getParams), SessionMngrResponse.class);
             if (resp.getCode().toString().equals("OK") && StringUtils.isEmpty(resp.getError())) {
                 String sessionId = resp.getSessionData().getSessionId();
                 getParams.clear();
@@ -255,7 +274,7 @@ public class RestControllers {
                 }
 
                 //calls SM, “/sm/getSessionData” to get the session object that must contain the variables idpRequest, idpMetadata 
-                resp = netServ.sendGet(sessionMngrUrl, "/sm/getSessionData", getParams);
+                resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSessionData", getParams), SessionMngrResponse.class);
                 String idpRequest = (String) resp.getSessionData().getSessionVariables().get("idpRequest");
                 //TODO check the IDP metdata?
                 String idpMetadata = (String) resp.getSessionData().getSessionVariables().get("idpMetadata");
