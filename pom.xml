@@ -30,6 +30,11 @@
             <name>project</name>
             <url>file:${project.basedir}/libs</url>
         </repository>
+        <repository>
+            <id>project.local2</id>
+            <name>project</name>
+            <url>file:/home/nikos/NetBeansProjects/esmo.gr.idp/libs2/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -137,6 +142,11 @@
             <type>jar</type>
         </dependency>
         
+        <dependency>
+            <groupId>sig</groupId>
+            <artifactId>httpSig</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 

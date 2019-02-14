@@ -6,6 +6,7 @@
 package gr.uagean.loginWebApp.controllers;
 
 import com.google.common.io.ByteStreams;
+import gr.uagean.loginWebApp.service.HttpSignatureService;
 import gr.uagean.loginWebApp.service.ParameterService;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -38,21 +39,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import gr.uagean.loginWebApp.service.HttpSignatureServiceOld;
 
 /**
  *
  * @author nikos
  */
-@Controller
 public class TestControllers {
 
     @Autowired
     private ParameterService paramServ;
     @Autowired
-    private HttpSignatureServiceOld sigServ;
+    private HttpSignatureService sigServ;
 
     private final static Logger LOG = LoggerFactory.getLogger(TestControllers.class);
+    
+    
+    
 
     @RequestMapping(value = "/external", produces = MediaType.TEXT_HTML_VALUE)
     public void getExternalPage(@RequestParam("url") String url, HttpServletResponse response) throws IOException, NoSuchAlgorithmException, KeyStoreException, UnrecoverableKeyException, UnrecoverableKeyException, UnsupportedEncodingException {

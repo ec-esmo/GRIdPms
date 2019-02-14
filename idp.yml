@@ -1,0 +1,35 @@
+version: '2'
+  
+services:
+    
+    
+    IdPMS:
+        image: endimion13/esmo-idp-gr:0.0.2
+        environment:
+            - KEYSTORE_PATH=/resources/testKeys/keystore.jks
+            - KEY_PASS=selfsignedpass
+            - STORE_PASS=keystorepass
+            - JWT_CERT_ALIAS=selfsigned
+            - HTTPSIG_CERT_ALIAS=1
+            - SIGNING_SECRET=QjG+wP1CbAH2z4PWlWIDkxP4oRlgK2vos5/jXFfeBw8=
+            - ASYNC_SIGNATURE=true
+            - EXPIRES=5
+            - CONFIG_JSON=/resources/configurationResponse.json
+            - ACM_URL=http://5.79.83.118:8080
+            - SESSION_MANAGER_URL=http://172.17.0.1:8090
+            - CONFIGURATION_MANAGER_URL=http://5.79.83.118:8080
+            - MEMCACHED_HOST=172.17.0.1
+            - MEMCACHED_PORT=11211
+            - EIDAS_PROPERTIES=FamilyName,FirstName
+            - ESMO_SUPPORTED_SIG_ALGORITHMS=RSA
+            - ESMO_SUPPORTED_ENC_ALGORITHMS=RSA
+            
+        volumes:
+            - /home/nikos/NetBeansProjects/esmo.gr.idp/src/test/resources:/resources
+            - /webappConfig:/webappConfig
+        ports:
+          - 8091:8080
+        
+
+ 
+
