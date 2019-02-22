@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="description" content=""></meta>
+        <meta name="author" content=""></meta>
+        <title>Create a new account</title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"></link>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+        <link rel="stylesheet" href="css/main.css"></link>
+        <link rel="icon"
+              type="image/x-icon"
+              href="favicon.ico"></link>
+        <link rel="icon"
+              type="image/x-icon"
+              href="favicon.ico"></link>
+        <!-- Overide the sidebar css -->
+        <style>
+            .sideBarClass{
+                margin-top: 0;
+            }
+
+            .breadCrumbs{
+                font-size: 18px;
+                color:  #00be9f;
+                padding-left: 0px;
+            }
+        </style>
+    </head>
+    <body>
+
+
+        <div th:replace="header :: header">Header</div>
+
+       <h1 th:text="${error}" >
+        </h1>
+
+
+
+    </body>
+</html>

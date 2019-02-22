@@ -17,6 +17,8 @@ public class AttributeType {
     private String language;
     private boolean isMandatory;
     private String[] values;
+    
+    
 
     public AttributeType() {
     }

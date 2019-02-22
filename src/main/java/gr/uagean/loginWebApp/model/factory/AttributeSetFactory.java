@@ -21,7 +21,7 @@ public class AttributeSetFactory {
 
     public static AttributeSet make(String id, TypeEnum type, String issuer, String recipient, List<AttributeType> attributes, Map<String, String> properties) {
         AttributeType[] attrArray = new AttributeType[attributes.size()];
-        return new AttributeSet(id, type, issuer, recipient, attributes.toArray(attrArray), properties);
+        return new AttributeSet(id, type, issuer, recipient, attributes.toArray(attrArray), properties, null, "low", null, null, null);
     }
 
     public static AttributeSet makeFromEidasResponse(String id, TypeEnum type, String issuer, String recipient, String eIDASResponse) {
@@ -29,7 +29,8 @@ public class AttributeSetFactory {
         AttributeType[] attrArray = new AttributeType[((List<AttributeType>) parsed.get(eIDASResponseParser.ATTRIBUTES_KEY)).size()];
         Map<String, String> metadataProperties = new HashMap();
         metadataProperties.put("levelOfAssurance", (String) parsed.get(eIDASResponseParser.METADATA_KEY));
-        return new AttributeSet(id, type, issuer, recipient, ((List<AttributeType>) parsed.get(eIDASResponseParser.ATTRIBUTES_KEY)).toArray(attrArray), metadataProperties);
+        return new AttributeSet(id, type, issuer, recipient, ((List<AttributeType>) parsed.get(eIDASResponseParser.ATTRIBUTES_KEY)).toArray(attrArray),
+                metadataProperties, null, "low", null, null, null);
     }
 
 }

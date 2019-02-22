@@ -72,7 +72,7 @@ public class TestSessisonManagerConnection {
         netServ = new NetworkServiceImpl(sigServ);
     }
 
-    @Test
+//    @Test
     public void testStartSMSession() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, KeyStoreException, KeyStoreException, UnrecoverableKeyException {
         String hostUrl = "http://0.0.0.0:8090";
         String uri = "/sm/startSession";
@@ -91,7 +91,7 @@ public class TestSessisonManagerConnection {
     public void testUpdateSessionData() throws IOException, NoSuchAlgorithmException {
         String hostUrl = "http://0.0.0.0:8090";
         AttributeType attributes = new AttributeType("name", "CurrentGivenName", "UTF-8", "en EN", false, new String[]{"NIKOS"});
-        AttributeSet attrSet = new AttributeSet("uuid", TypeEnum.Request, "issuer", "recipient", new AttributeType[]{attributes}, null);
+        AttributeSet attrSet = new AttributeSet("uuid", TypeEnum.Request, "issuer", "recipient", new AttributeType[]{attributes}, null,null,"low",null,null,null);
 
         ObjectMapper mapper = new ObjectMapper();
         String attrSetString = mapper.writeValueAsString(attrSet);
@@ -111,7 +111,7 @@ public class TestSessisonManagerConnection {
 
     }
 
-    @Test
+//    @Test
     public void testGetSMSession() throws IOException, NoSuchAlgorithmException {
         String hostUrl = "http://0.0.0.0:8090";
 //        String uri="/sm/getSession";
@@ -127,7 +127,7 @@ public class TestSessisonManagerConnection {
 
     }
 
-    @Test
+//    @Test
     public void testGenerateToken() throws IOException, NoSuchAlgorithmException {
         String hostUrl = "http://0.0.0.0:8090";
         String uri = "/sm/startSession";
@@ -138,7 +138,7 @@ public class TestSessisonManagerConnection {
         String sessionId = resp.getSessionData().getSessionId();
 
         AttributeType attributes = new AttributeType("name", "CurrentGivenName", "UTF-8", "en EN", false, new String[]{"NIKOS"});
-        AttributeSet attrSet = new AttributeSet("uuid", TypeEnum.Request, "issuer", "recipient", new AttributeType[]{attributes}, null);
+        AttributeSet attrSet = new AttributeSet("uuid", TypeEnum.Request, "issuer", "recipient", new AttributeType[]{attributes}, null,null,"low",null,null,null);
 
         ObjectMapper mapper = new ObjectMapper();
         String attrSetString = mapper.writeValueAsString(attrSet);
@@ -172,6 +172,7 @@ public class TestSessisonManagerConnection {
     @Test
     public void testFullFlow() throws IOException, NoSuchAlgorithmException, Exception {
         String hostUrl = "http://0.0.0.0:8090";
+//        String hostUrl = "http://5.79.83.118:8090";
         String uri = "/sm/startSession";
         List<NameValuePair> postParams = new ArrayList();
 
@@ -183,11 +184,11 @@ public class TestSessisonManagerConnection {
         String[] values = new String[1];
         AttributeType att1 = new AttributeType("someURI", "FirstName", "UTF-8", "en", true, values);
         attrType[0] = att1;
-        AttributeSet attrSet = new AttributeSet("id", TypeEnum.Request, "ACMms001", "ACMms001", attrType, new HashMap<>());
+        AttributeSet attrSet = new AttributeSet("id", TypeEnum.Request, "ACMms001", "IDPms001", attrType, new HashMap<>(),null,"low",null,null,null);
 
         ObjectMapper mapper = new ObjectMapper();
         String attrSetString = mapper.writeValueAsString(attrSet);
-        uri = "/sm/updateSessionData";
+        uri = "/fakeSm/updateSessionData";
         UpdateDataRequest updateDR = new UpdateDataRequest();
         updateDR.setSessionId(sessionId);
         updateDR.setVariableName("idpRequest");
@@ -198,7 +199,7 @@ public class TestSessisonManagerConnection {
         postParams.clear();
         postParams.add(new NameValuePair("sessionId", sessionId));
         postParams.add(new NameValuePair("sender", "ACMms001"));
-        postParams.add(new NameValuePair("receiver", "ACMms001"));
+        postParams.add(new NameValuePair("receiver", "IDPms001"));
         resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, postParams), SessionMngrResponse.class);
         String token = resp.getAdditionalData();
 

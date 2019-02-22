@@ -117,7 +117,8 @@ public class FakeRestControllers {
             }).collect(Collectors.toList());
             if (supportedAttrs.isEmpty()) {
                 LOG.error("none of the attributes requested are supported!");
-                return null;
+                model.addAttribute("error", "none of the attributes requested are supported!");
+                return "errorPage";
             }
             //update the esmoGW session with the idp sessionId
             String eidasSession = "fakeEidasId" + UUID.randomUUID().toString();
@@ -131,7 +132,8 @@ public class FakeRestControllers {
             resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSession", requestParams), SessionMngrResponse.class);
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
-                return null;
+                model.addAttribute("error", resp.getError());
+                return "errorPage";
             }
 
             //IdP Connector updates the session with the variables received from the user authentication by calling the SM, with post, “/sm/updateSessionData” twice
@@ -149,7 +151,9 @@ public class FakeRestControllers {
 
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
-                return null;
+                model.addAttribute("error", resp.getError());
+
+                return "errorPage";
             }
 
             // once to store the idp metadata
@@ -159,19 +163,20 @@ public class FakeRestControllers {
                 resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
                 if (!resp.getCode().toString().equals("OK")) {
                     LOG.error("ERROR: " + resp.getError());
-                    return null;
+                    model.addAttribute("error", resp.getError());
+                    return "errorPage";
                 }
             }
 
             //IdP Connector generates a new security token to send to the ACM, by calling get “/sm/generateToken” 
             requestParams.clear();
             requestParams.add(new NameValuePair("sessionId", smSessionId));
-            requestParams.add(new NameValuePair("sender", "ACMms001"));
+            requestParams.add(new NameValuePair("sender", "IdPms001")); //[TODO] add correct sender
             requestParams.add(new NameValuePair("receiver", "ACMms001"));
             resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/generateToken", requestParams), SessionMngrResponse.class);
             if (!resp.getCode().toString().equals("NEW")) {
                 LOG.error("ERROR: " + resp.getError());
-                return null;
+                return "errorPage";
             } else {
                 String msToken = resp.getAdditionalData();
                 //IdP calls, post  /acm/response
@@ -182,7 +187,9 @@ public class FakeRestControllers {
             }
 
         }
-        return null;
+        LOG.error("ERROR: " + resp.getError());
+        model.addAttribute("error", resp.getError());
+        return "errorPage";
     }
 
 }

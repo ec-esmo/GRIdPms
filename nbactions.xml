@@ -27,7 +27,7 @@
                 <Env.SP_CONFIG_REPOSITORY>/configEidas/</Env.SP_CONFIG_REPOSITORY>
                 <Env.SP_SECRET>secret</Env.SP_SECRET>
                 <Env.AUTH_DURATION>1800</Env.AUTH_DURATION>
-                <Env.SESSION_MANAGER_URL>http://0.0.0.0:8090</Env.SESSION_MANAGER_URL>
+                <Env.SESSION_MANAGER_URL>http://5.79.83.118:8090</Env.SESSION_MANAGER_URL>
                 <Env.KEY_PASS>selfsignedpass</Env.KEY_PASS>
                 
                 <Env.JWT_CERT_ALIAS>selfsigned</Env.JWT_CERT_ALIAS>

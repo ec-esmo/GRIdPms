@@ -21,16 +21,72 @@ public class AttributeSet {
     private AttributeType[] attributes;
     private Map<String, String> properties;
 
-    public AttributeSet() {
-    }
+    private String inResponseTo;
 
-    public AttributeSet(String id, TypeEnum type, String issuer, String recipient, AttributeType[] attributes, Map<String, String> properties) {
+    private String loa;
+
+    private String notBefore;
+
+    private String notAfter;
+
+    private AttributeSetStatus status;
+
+    public AttributeSet(String id, TypeEnum type, String issuer, String recipient, AttributeType[] attributes,
+            Map<String, String> properties, String inResponseTo, String loa, String notBefore, String notAfter, AttributeSetStatus status) {
         this.id = id;
         this.type = type;
         this.issuer = issuer;
         this.recipient = recipient;
         this.attributes = attributes;
         this.properties = properties;
+        this.inResponseTo = inResponseTo;
+        this.loa = loa;
+        this.notBefore = notBefore;
+        this.notAfter = notAfter;
+        this.status = status;
+    }
+
+    public AttributeSet() {
+    }
+
+    public String getInResponseTo() {
+        return inResponseTo;
+    }
+
+    public void setInResponseTo(String inResponseTo) {
+        this.inResponseTo = inResponseTo;
+    }
+
+    public String getLoa() {
+        return loa;
+    }
+
+    public void setLoa(String loa) {
+        this.loa = loa;
+    }
+
+    public String getNotBefore() {
+        return notBefore;
+    }
+
+    public void setNotBefore(String notBefore) {
+        this.notBefore = notBefore;
+    }
+
+    public String getNotAfter() {
+        return notAfter;
+    }
+
+    public void setNotAfter(String notAfter) {
+        this.notAfter = notAfter;
+    }
+
+    public AttributeSetStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AttributeSetStatus status) {
+        this.status = status;
     }
 
     public String getId() {

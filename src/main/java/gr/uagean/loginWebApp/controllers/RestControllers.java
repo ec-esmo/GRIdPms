@@ -114,7 +114,7 @@ public class RestControllers {
     public RestControllers(KeyStoreService keyServ) throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException, UnsupportedEncodingException, InvalidKeySpecException, IOException {
         this.keyServ = keyServ;
         Key signingKey = this.keyServ.getSigningKey();
-        String fingerPrint = "7a9ba747ab5ac50e640a07d90611ce612b7bde775457f2e57b804517a87c813b";
+        String fingerPrint = "7a9ba747ab5ac50e640a07d90611ce612b7bde775457f2e57b804517a87c813b"; //TODO
         HttpSignatureService httpSigServ = new HttpSignatureServiceImpl(fingerPrint, signingKey);
         this.netServ = new NetworkServiceImpl(httpSigServ);
     }
@@ -196,6 +196,7 @@ public class RestControllers {
                 return "redirect:" + paramServ.getParam(SP_FAIL_PAGE);
             }
 
+            String smSessionId = resp.getSessionData().getSessionId();
             //IdP Connector updates the session with the variables received from the user authentication by calling the SM, with post, “/sm/updateSessionData” twice
             //once to store the received attributes
             AttributeSet receivedAttributes = AttributeSetFactory.makeFromEidasResponse("id", TypeEnum.Response, "issuer", "recipient", data.getResponseXML());
@@ -203,8 +204,8 @@ public class RestControllers {
             requestParams.clear();
             requestParams.add(new NameValuePair("dataObject", attributSetString));
             requestParams.add(new NameValuePair("variableName", "dsResponse"));
-            requestParams.add(new NameValuePair("sessionId", resp.getSessionData().getSessionId()));
-            UpdateDataRequest updateReq = new UpdateDataRequest(resp.getSessionData().getSessionId(), "dsResponse", attributSetString);
+            requestParams.add(new NameValuePair("sessionId", smSessionId));
+            UpdateDataRequest updateReq = new UpdateDataRequest(smSessionId, "dsResponse", attributSetString);
             resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
 //            resp = netServ.sendPost(sessionMngrUrl, "/sm/updateSessionData", requestParams);
             if (!resp.getCode().toString().equals("OK")) {
@@ -217,7 +218,7 @@ public class RestControllers {
 //            requestParams.add(new NameValuePair("dsMetadata", mapper.writeValueAsString(metadataServ.getMetadata())));
 //            requestParams.add(new NameValuePair("sessionId", resp.getSessionData().getSessionId()));
 //            resp = netServ.sendPost(sessionMngrUrl, "/sm/updateSessionData", requestParams);
-            updateReq = new UpdateDataRequest(resp.getSessionData().getSessionId(), "dsMetadata", mapper.writeValueAsString(metadataServ.getMetadata()));
+            updateReq = new UpdateDataRequest(smSessionId, "dsMetadata", mapper.writeValueAsString(metadataServ.getMetadata()));
             resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
@@ -225,7 +226,7 @@ public class RestControllers {
             }
             //IdP Connector generates a new security token to send to the ACM, by calling get “/sm/generateToken” 
             requestParams.clear();
-            requestParams.add(new NameValuePair("sessionId", resp.getSessionData().getSessionId()));
+            requestParams.add(new NameValuePair("sessionId", smSessionId));
             resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/generateToken", requestParams), SessionMngrResponse.class);
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
