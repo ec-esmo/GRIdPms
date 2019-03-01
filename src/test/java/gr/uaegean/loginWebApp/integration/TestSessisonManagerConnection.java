@@ -214,7 +214,7 @@ public class TestSessisonManagerConnection {
 
     }
 
-    @Test
+//    @Test
     public void tryManyTimes() throws IOException, NoSuchAlgorithmException {
         String sessionId = "";
         for (int i = 1; i < 300; i++) {
