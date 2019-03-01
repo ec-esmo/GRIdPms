@@ -13,6 +13,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
+import org.apache.commons.httpclient.NameValuePair;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -53,11 +54,14 @@ public class TestRestControllersConfig {
         Mockito.when(paramServ().getParam("JWT_CERT_ALIAS")).thenReturn("selfsigned");
         Mockito.when(paramServ().getParam("HTTPSIG_CERT_ALIAS")).thenReturn("1");
         Mockito.when(paramServ().getParam("ASYNC_SIGNATURE")).thenReturn("true");
-//        Mockito.when(paramServ().getParam("SESSION_MANAGER_URL")).thenReturn("http://5.79.83.118:8090");
-        Mockito.when(paramServ().getParam("SESSION_MANAGER_URL")).thenReturn("http://localhost:8090");
+        Mockito.when(paramServ().getParam("SESSION_MANAGER_URL")).thenReturn("http://5.79.83.118:8090");
+//        Mockito.when(paramServ().getParam("SESSION_MANAGER_URL")).thenReturn("http://localhost:8090");
         Mockito.when(paramServ().getParam("EIDAS_PROPERTIES")).thenReturn("FamilyName,FirstName");
         Mockito.when(paramServ().getParam("ESMO_SUPPORTED_SIG_ALGORITHMS")).thenReturn("RSA");
         Mockito.when(paramServ().getParam("ESMO_SUPPORTED_ENC_ALGORITHMS")).thenReturn("RSA");
+        Mockito.when(paramServ().getParam("REDIRECT_JWT_SENDER")).thenReturn("IdPms001");
+        Mockito.when(paramServ().getParam("REDIRECT_JWT_RECEIVER")).thenReturn("ACMms001");
+        
         return new KeyStoreServiceImpl(paramServ());
     }
 }

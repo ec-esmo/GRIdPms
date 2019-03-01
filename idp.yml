@@ -21,9 +21,30 @@ services:
             - CONFIGURATION_MANAGER_URL=http://5.79.83.118:8080
             - MEMCACHED_HOST=172.17.0.1
             - MEMCACHED_PORT=11211
-            - EIDAS_PROPERTIES=FamilyName,FirstName
             - ESMO_SUPPORTED_SIG_ALGORITHMS=RSA
             - ESMO_SUPPORTED_ENC_ALGORITHMS=RSA
+            - REDIRECT_JWT_SENDER=IdPms001
+            - REDIRECT_JWT_RECEIVER=ACMms001
+            
+            - SP_CONFIG_REPOSITORY=/configEidas/
+            - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+            - SP_METADATA_URL=http://165.227.151.145:8091/metadata
+            - SP_RETURN_URL=http://165.227.151.145:8091/eidasResponse
+            - EIDAS_NODE_URL=https://eidas.gov.gr/EidasNode/ServiceProvider    
+            
+
+            - SP_SUCCESS_PAGE=https://www.e-post.gr/portalRedirect.jsp
+            - SP_CONFIG_REPOSITORY=/configEidas/
+            - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+            - SP_COUNTRY=GR
+            - EIDAS_NODE_URL=http://84.205.248.180/EidasNode/ServiceProvider/
+      
+
+            
+         
+            
+
+            
             
         volumes:
             - /home/nikos/NetBeansProjects/esmo.gr.idp/src/test/resources:/resources

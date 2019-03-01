@@ -127,7 +127,7 @@ public class RestControllers {
     }
 
     @RequestMapping(value = "/generateSAMLToken", method = {RequestMethod.GET})
-    public ResponseEntity getSAMLToken(@RequestParam(value = "citizenCountry", required = true) String citizenCountry, @RequestParam(value = "IdPMSSession", required = true) String session) {
+    public ResponseEntity getSAMLToken(@RequestParam(value = "citizenCountry", required = true) String citizenCountry, @RequestParam(value = "IdPMSSession", required = true) String idpSession) {
 
         String serviceProviderCountry = paramServ.getParam(SP_COUNTRY);
         ObjectMapper mapper = new ObjectMapper();
@@ -141,16 +141,12 @@ public class RestControllers {
             if (memcache == null) {
                 throw new NullPointerException("error getting ipd cache");
             } else {
-                String esmoGWSession = memcache.get(session, String.class);
+                String esmoGWSession = (String) memcache.get(idpSession).get();
                 String eidasSession = data.getID();
-
                 String sessionMngrUrl = paramServ.getParam("SESSION_MANAGER_URL");
-//                List<NameValuePair> postParams = new ArrayList();
-//                postParams.add(new NameValuePair("sessionId", esmoGWSession));
-//                postParams.add(new NameValuePair("dataObject", eidasSession));
-//                postParams.add(new NameValuePair("variableName", "GR_eIDAS_IdP_Session"));
                 UpdateDataRequest updateReq = new UpdateDataRequest(esmoGWSession, "GR_eIDAS_IdP_Session", eidasSession);
-                SessionMngrResponse resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
+                LOG.info("Storing GR_eIDAS_IdP_Session" + eidasSession);
+                SessionMngrResponse resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json",1), SessionMngrResponse.class);
                 if (resp.getCode().toString().equals("OK")) {
                     // IdP Connector generates “external session identifier” for the authentication (e.g. eIDAS uuid) and stores it in the internal session by calling post, “/sm/updateSessionData”
                     return ResponseEntity.ok(data.getSaml());
@@ -184,13 +180,16 @@ public class RestControllers {
         }
 
         try {
-            String eidasSession = data.getID();
+            String eidasSession = data.getResponseToID();//data.getID();
+            
             //receives response containing the external identifier and retrieves the internal identifier by calling, get “/sm/getSession”
             String sessionMngrUrl = paramServ.getParam("SESSION_MANAGER_URL");
             List<NameValuePair> requestParams = new ArrayList();
             requestParams.add(new NameValuePair("varName", "GR_eIDAS_IdP_Session"));
             requestParams.add(new NameValuePair("varValue", eidasSession));
-            SessionMngrResponse resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSession", requestParams), SessionMngrResponse.class);
+            SessionMngrResponse resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSession", requestParams,1), SessionMngrResponse.class);
+            LOG.info("tried to retrieve session for " + eidasSession);
+            LOG.info("getSession " + resp.getCode().toString());
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
                 return "redirect:" + paramServ.getParam(SP_FAIL_PAGE);
@@ -206,8 +205,9 @@ public class RestControllers {
             requestParams.add(new NameValuePair("variableName", "dsResponse"));
             requestParams.add(new NameValuePair("sessionId", smSessionId));
             UpdateDataRequest updateReq = new UpdateDataRequest(smSessionId, "dsResponse", attributSetString);
-            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
+            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json",1), SessionMngrResponse.class);
 //            resp = netServ.sendPost(sessionMngrUrl, "/sm/updateSessionData", requestParams);
+            LOG.info("updateSessionData " +resp.getCode().toString());
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
                 return "redirect:" + paramServ.getParam(SP_FAIL_PAGE);
@@ -219,7 +219,8 @@ public class RestControllers {
 //            requestParams.add(new NameValuePair("sessionId", resp.getSessionData().getSessionId()));
 //            resp = netServ.sendPost(sessionMngrUrl, "/sm/updateSessionData", requestParams);
             updateReq = new UpdateDataRequest(smSessionId, "dsMetadata", mapper.writeValueAsString(metadataServ.getMetadata()));
-            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
+            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json",1), SessionMngrResponse.class);
+            LOG.info("updateSessionData metadata " +resp.getCode().toString());
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
                 return "redirect:" + paramServ.getParam(SP_FAIL_PAGE);
@@ -227,8 +228,11 @@ public class RestControllers {
             //IdP Connector generates a new security token to send to the ACM, by calling get “/sm/generateToken” 
             requestParams.clear();
             requestParams.add(new NameValuePair("sessionId", smSessionId));
-            resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/generateToken", requestParams), SessionMngrResponse.class);
-            if (!resp.getCode().toString().equals("OK")) {
+            requestParams.add(new NameValuePair("sender", paramServ.getParam("REDIRECT_JWT_SENDER"))); //[TODO] add correct sender "IdPms001"
+            requestParams.add(new NameValuePair("receiver", paramServ.getParam("REDIRECT_JWT_RECEIVER"))); //"ACMms001"
+            resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/generateToken", requestParams,1), SessionMngrResponse.class);
+            LOG.info("generateToken" +resp.getCode().toString());
+            if (!resp.getCode().toString().equals("NEW")) {
                 LOG.error("ERROR: " + resp.getError());
                 return "redirect:" + paramServ.getParam(SP_FAIL_PAGE);
             } else {
@@ -259,7 +263,7 @@ public class RestControllers {
 
         try {
             //calls SM, get /sm/validateToken, to validate the received token and get the sessionId
-            SessionMngrResponse resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/validateToken", getParams), SessionMngrResponse.class);
+            SessionMngrResponse resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/validateToken", getParams,1), SessionMngrResponse.class);
             if (resp.getCode().toString().equals("OK") && StringUtils.isEmpty(resp.getError())) {
                 String sessionId = resp.getSessionData().getSessionId();
                 getParams.clear();
@@ -275,7 +279,7 @@ public class RestControllers {
                 }
 
                 //calls SM, “/sm/getSessionData” to get the session object that must contain the variables idpRequest, idpMetadata 
-                resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSessionData", getParams), SessionMngrResponse.class);
+                resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSessionData", getParams,1), SessionMngrResponse.class);
                 String idpRequest = (String) resp.getSessionData().getSessionVariables().get("idpRequest");
                 //TODO check the IDP metdata?
                 String idpMetadata = (String) resp.getSessionData().getSessionVariables().get("idpMetadata");

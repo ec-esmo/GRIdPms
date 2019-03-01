@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import gr.uagean.loginWebApp.service.HttpSignatureService;
 import gr.uagean.loginWebApp.service.NetworkService;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.security.KeyStoreException;
 import java.security.MessageDigest;
@@ -21,7 +22,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.UUID;
+import java.util.logging.Level;
 import org.apache.commons.httpclient.NameValuePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,8 +34,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.ResponseErrorHandler;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -40,10 +46,9 @@ import org.springframework.web.util.UriComponentsBuilder;
  *
  * @author nikos
  */
-
 public class NetworkServiceImpl implements NetworkService {
 
-    private HttpSignatureService sigServ;
+    private final HttpSignatureService sigServ;
     private final static Logger LOG = LoggerFactory.getLogger(NetworkServiceImpl.class);
 
     public NetworkServiceImpl(HttpSignatureService sigServ) {
@@ -51,10 +56,11 @@ public class NetworkServiceImpl implements NetworkService {
     }
 
     @Override
-    public String sendPostBody(String hostUrl, String uri, Object postBody, String contentType) throws IOException, NoSuchAlgorithmException {
+    public String sendPostBody(String hostUrl, String uri, Object postBody, String contentType, int attempt) throws IOException, NoSuchAlgorithmException {
 
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM YYYY HH:mm:ss z",Locale.ENGLISH);
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM YYYY HH:mm:ss z", Locale.US);
+        formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
         String nowDate = formatter.format(date);
         String requestId = UUID.randomUUID().toString();
 
@@ -74,11 +80,22 @@ public class NetworkServiceImpl implements NetworkService {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(hostUrl + uri);
             RestTemplate restTemplate = new RestTemplate();
             HttpEntity<Object> requestEntity = new HttpEntity<>(postBody, requestHeaders);
-            ResponseEntity<String> response
-                    = restTemplate.exchange(builder.toUriString(), HttpMethod.POST, requestEntity,
-                            String.class);
-            return response.getBody();
-        } catch (Exception e) {
+            try {
+                ResponseEntity<String> response
+                        = restTemplate.exchange(builder.toUriString(), HttpMethod.POST, requestEntity,
+                                String.class);
+                return response.getBody();
+            } catch (RestClientException e) {
+                LOG.info("request failed will retry");
+                if (attempt < 2) {
+                    return sendPostBody(hostUrl, uri, postBody, contentType, attempt + 1);
+                }
+            }
+        } catch (UnrecoverableKeyException e) {
+            LOG.info(e.getMessage());
+        } catch (KeyStoreException e) {
+            LOG.info(e.getMessage());
+        } catch (UnsupportedEncodingException e) {
             LOG.info(e.getMessage());
         }
         return null;
@@ -86,7 +103,7 @@ public class NetworkServiceImpl implements NetworkService {
 
     @Override
     public String sendPostForm(String hostUrl, String uri,
-            List<NameValuePair> urlParameters) throws IOException, NoSuchAlgorithmException {
+            List<NameValuePair> urlParameters, int attempt) throws IOException, NoSuchAlgorithmException {
 
         Map<String, String> map = new HashMap();
         MultiValueMap<String, String> multiMap = new LinkedMultiValueMap<>();
@@ -118,19 +135,27 @@ public class NetworkServiceImpl implements NetworkService {
         }
 
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(multiMap, headers);
-        ResponseEntity<String> response = restTemplate.postForEntity(
-                hostUrl + uri, request, String.class);
-
-        assert (response.getStatusCode().equals(HttpStatus.CREATED) || response.getStatusCode().equals(HttpStatus.OK));
-        return response.getBody();
+        try {
+            ResponseEntity<String> response = restTemplate.postForEntity(
+                    hostUrl + uri, request, String.class);
+            return response.getBody();
+        } catch (RestClientException e) {
+            LOG.info("request failed will retry");
+            if (attempt < 2) {
+                return sendPostForm(hostUrl, uri,
+                        urlParameters, attempt + 1);
+            }
+        }
+        return null;
     }
 
     @Override
     public String sendGet(String hostUrl, String uri,
-            List<NameValuePair> urlParameters) throws IOException, NoSuchAlgorithmException {
+            List<NameValuePair> urlParameters, int attempt) throws IOException, NoSuchAlgorithmException {
 
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM YYYY HH:mm:ss z",Locale.ENGLISH);
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM YYYY HH:mm:ss z", Locale.US);
+        formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
         String nowDate = formatter.format(date);
         String requestId = UUID.randomUUID().toString();
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(hostUrl + uri);
@@ -153,22 +178,30 @@ public class NetworkServiceImpl implements NetworkService {
             requestHeaders.add("x-request-id", requestId);
             URL url = new URL(builder.toUriString());
 
-            requestHeaders.add("authorization", sigServ.generateSignature(host, "GET", url.getPath()+"?"+url.getQuery(), null, "application/x-www-form-urlencoded", requestId));
+            requestHeaders.add("authorization", sigServ.generateSignature(host, "GET", url.getPath() + "?" + url.getQuery(), null, "application/x-www-form-urlencoded", requestId));
         } catch (IOException | KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
             LOG.error("could not generate signature!!");
             LOG.error(e.getMessage());
         }
 
         HttpEntity entity = new HttpEntity(requestHeaders);
-        ResponseEntity<String> response = restTemplate.exchange(
-                builder.toUriString(), HttpMethod.GET, entity, String.class);
-        return response.getBody();
+        try {
+            ResponseEntity<String> response = restTemplate.exchange(
+                    builder.toUriString(), HttpMethod.GET, entity, String.class);
+            return response.getBody();
+        } catch (RestClientException e) {
+            if (attempt < 2) {
+                return sendGet(hostUrl, uri,
+                        urlParameters, attempt + 1);
+            }
+        }
+        return null;
+
     }
 
-    
-
     private void addHeaders(HttpHeaders headers, String host, Date date, byte[] digestBytes, String uri, String requestId) throws NoSuchAlgorithmException {
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM YYYY HH:mm:ss z",Locale.ENGLISH);
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM YYYY HH:mm:ss z", Locale.US);
+        formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
         String nowDate = formatter.format(date);
         headers.add("host", host);
         headers.add("original-date", nowDate);

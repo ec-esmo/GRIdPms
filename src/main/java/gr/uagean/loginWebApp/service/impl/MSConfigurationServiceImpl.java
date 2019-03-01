@@ -66,7 +66,7 @@ public class MSConfigurationServiceImpl implements MSConfigurationService {
         try {
             String sessionMngrUrl = paramServ.getParam("CONFIGURATION_MANAGER_URL");
             List<NameValuePair> getParams = new ArrayList();
-            return MSConfigurationResponseFactory.makeMSConfigResponseFromJSON(netServ.sendGet(sessionMngrUrl, "/metadata/microservices", getParams));
+            return MSConfigurationResponseFactory.makeMSConfigResponseFromJSON(netServ.sendGet(sessionMngrUrl, "/metadata/microservices", getParams,1));
         } catch (IOException | NoSuchAlgorithmException ex) {
             LOG.error(ex.getMessage());
             return null;

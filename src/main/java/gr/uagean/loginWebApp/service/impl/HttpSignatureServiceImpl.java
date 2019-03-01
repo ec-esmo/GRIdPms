@@ -47,7 +47,6 @@ import org.tomitribe.auth.signatures.Verifier;
  *
  * @author nikos
  */
-
 public class HttpSignatureServiceImpl implements HttpSignatureService {
 
     private Algorithm algorithm = Algorithm.RSA_SHA256;
@@ -83,7 +82,8 @@ public class HttpSignatureServiceImpl implements HttpSignatureService {
         final Map<String, String> signatureHeaders = new HashMap<>();
         signatureHeaders.put("host", hostUrl);
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM YYYY HH:mm:ss z", Locale.ENGLISH);
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM YYYY HH:mm:ss z", Locale.US);
+        formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
         String nowDate = formatter.format(date);
         signatureHeaders.put("original-date", nowDate);
         signatureHeaders.put("Content-Type", contentType);
@@ -107,7 +107,8 @@ public class HttpSignatureServiceImpl implements HttpSignatureService {
         signatureHeaders.put("(request-target)", method + " " + uri);
 
         Algorithm algorithm = Algorithm.RSA_SHA256;
-        Signature signed = getSigner(this.siginingKey, this.keyId).sign(method, uri, signatureHeaders);
+        Signer signer = new Signer(this.siginingKey, new Signature(this.keyId, algorithm, null, "(request-target)", "host", "original-date", "digest", "x-request-id"));
+        Signature signed = signer.sign(method, uri, signatureHeaders); //getSigner(this.siginingKey, this.keyId).sign(method, uri, signatureHeaders);
         return signed.toString();
     }
 
@@ -137,7 +138,7 @@ public class HttpSignatureServiceImpl implements HttpSignatureService {
             Map<String, String> headers = new HashMap<String, String>();
             Collections.list(httpRequest.getHeaderNames())
                     .stream().forEach(hName -> {
-                        headers.put(hName, httpRequest.getHeader(hName));
+                        headers.put(hName.toLowerCase(), httpRequest.getHeader(hName));
                     });
 
             String clientTime = StringUtils.isEmpty(httpRequest.getHeader("date"))

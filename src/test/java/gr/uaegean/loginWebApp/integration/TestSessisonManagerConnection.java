@@ -10,6 +10,7 @@ import gr.uagean.loginWebApp.LoginWebAppApplication;
 import gr.uagean.loginWebApp.MemCacheConfig;
 //import gr.uagean.loginWebApp.MemCacheConfig;
 import gr.uagean.loginWebApp.TestRestControllersConfig;
+import gr.uagean.loginWebApp.model.enums.ResponseCode;
 import gr.uagean.loginWebApp.model.enums.TypeEnum;
 import gr.uagean.loginWebApp.model.pojo.AttributeSet;
 import gr.uagean.loginWebApp.model.pojo.AttributeType;
@@ -42,7 +43,9 @@ import java.security.KeyStoreException;
 import java.security.UnrecoverableKeyException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Before;
+import org.springframework.web.client.HttpServerErrorException.InternalServerError;
 
 /**
  *
@@ -78,7 +81,7 @@ public class TestSessisonManagerConnection {
         String uri = "/sm/startSession";
         List<NameValuePair> postParams = new ArrayList();
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams,1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         System.out.println(resp.getSessionData().getSessionId());
 
@@ -91,7 +94,7 @@ public class TestSessisonManagerConnection {
     public void testUpdateSessionData() throws IOException, NoSuchAlgorithmException {
         String hostUrl = "http://0.0.0.0:8090";
         AttributeType attributes = new AttributeType("name", "CurrentGivenName", "UTF-8", "en EN", false, new String[]{"NIKOS"});
-        AttributeSet attrSet = new AttributeSet("uuid", TypeEnum.Request, "issuer", "recipient", new AttributeType[]{attributes}, null,null,"low",null,null,null);
+        AttributeSet attrSet = new AttributeSet("uuid", TypeEnum.Request, "issuer", "recipient", new AttributeType[]{attributes}, null, null, "low", null, null, null);
 
         ObjectMapper mapper = new ObjectMapper();
         String attrSetString = mapper.writeValueAsString(attrSet);
@@ -104,7 +107,7 @@ public class TestSessisonManagerConnection {
 
         UpdateDataRequest updateReq = new UpdateDataRequest("182b548a-af37-41fd-8c6f-1a797eda2a0b", "idpRequest", attrSetString);
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, "/sm/updateSessionData", updateReq, "application/json",1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
 
         assertEquals(resp.getCode().toString(), "OK");
@@ -121,7 +124,7 @@ public class TestSessisonManagerConnection {
         NameValuePair val = new NameValuePair("sessionId", "182b548a-af37-41fd-8c6f-1a797eda2a0b");
         getParams.add(val);
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, getParams), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, getParams,1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         assertEquals(resp.getCode().toString(), "OK");
 
@@ -133,12 +136,12 @@ public class TestSessisonManagerConnection {
         String uri = "/sm/startSession";
         List<NameValuePair> postParams = new ArrayList();
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams,1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         String sessionId = resp.getSessionData().getSessionId();
 
         AttributeType attributes = new AttributeType("name", "CurrentGivenName", "UTF-8", "en EN", false, new String[]{"NIKOS"});
-        AttributeSet attrSet = new AttributeSet("uuid", TypeEnum.Request, "issuer", "recipient", new AttributeType[]{attributes}, null,null,"low",null,null,null);
+        AttributeSet attrSet = new AttributeSet("uuid", TypeEnum.Request, "issuer", "recipient", new AttributeType[]{attributes}, null, null, "low", null, null, null);
 
         ObjectMapper mapper = new ObjectMapper();
         String attrSetString = mapper.writeValueAsString(attrSet);
@@ -150,7 +153,7 @@ public class TestSessisonManagerConnection {
         postParams.add(new NameValuePair("variableName", "idpRequest"));
 
         UpdateDataRequest updateReq = new UpdateDataRequest(sessionId, "idpRequest", attrSetString);
-        resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, "/sm/updateSessionData", updateReq, "application/json;charset=UTF-8"), SessionMngrResponse.class);
+        resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, "/sm/updateSessionData", updateReq, "application/json;charset=UTF-8",1), SessionMngrResponse.class);
 
         assertEquals(resp.getCode().toString(), "OK");
 
@@ -161,7 +164,7 @@ public class TestSessisonManagerConnection {
         getParams.add(new NameValuePair("receiver", "ACMms001"));
         getParams.add(new NameValuePair("sender", "ACMms001"));
 
-        resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, getParams), SessionMngrResponse.class);
+        resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, getParams,1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         System.out.println(resp.getAdditionalData());
 
@@ -171,20 +174,22 @@ public class TestSessisonManagerConnection {
 
     @Test
     public void testFullFlow() throws IOException, NoSuchAlgorithmException, Exception {
-        String hostUrl = "http://0.0.0.0:8090";
-//        String hostUrl = "http://5.79.83.118:8090";
+//        String hostUrl = "http://0.0.0.0:8090";
+        String hostUrl = "http://5.79.83.118:8090";
         String uri = "/sm/startSession";
         List<NameValuePair> postParams = new ArrayList();
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams,1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         String sessionId = resp.getSessionData().getSessionId();
 
-        AttributeType[] attrType = new AttributeType[1];
+        AttributeType[] attrType = new AttributeType[2];
         String[] values = new String[1];
-        AttributeType att1 = new AttributeType("someURI", "FirstName", "UTF-8", "en", true, values);
+        AttributeType att1 = new AttributeType("someURI", "CurrentFamilyName", "UTF-8", "en", true, values);
+        AttributeType att2 = new AttributeType("someURI", "CurrentGivenName", "UTF-8", "en", true, values);
         attrType[0] = att1;
-        AttributeSet attrSet = new AttributeSet("id", TypeEnum.Request, "ACMms001", "IDPms001", attrType, new HashMap<>(),null,"low",null,null,null);
+        attrType[1] = att2;
+        AttributeSet attrSet = new AttributeSet("id", TypeEnum.Request, "ACMms001", "IDPms001", attrType, new HashMap<>(), null, "low", null, null, null);
 
         ObjectMapper mapper = new ObjectMapper();
         String attrSetString = mapper.writeValueAsString(attrSet);
@@ -193,20 +198,57 @@ public class TestSessisonManagerConnection {
         updateDR.setSessionId(sessionId);
         updateDR.setVariableName("idpRequest");
         updateDR.setDataObject(attrSetString);
-        resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, uri, updateDR, "application/json"), SessionMngrResponse.class);
+        resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, uri, updateDR, "application/json",1), SessionMngrResponse.class);
 
         uri = "/sm/generateToken";
         postParams.clear();
         postParams.add(new NameValuePair("sessionId", sessionId));
         postParams.add(new NameValuePair("sender", "ACMms001"));
-        postParams.add(new NameValuePair("receiver", "IDPms001"));
-        resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, postParams), SessionMngrResponse.class);
+        postParams.add(new NameValuePair("receiver", "IdPms001"));
+        resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, postParams,1), SessionMngrResponse.class);
         String token = resp.getAdditionalData();
 
         mvc.perform(get("/fakeSm//idp/authenticate?msToken=" + token))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk());
 
+    }
+
+    @Test
+    public void tryManyTimes() throws IOException, NoSuchAlgorithmException {
+        String sessionId = "";
+        for (int i = 1; i < 300; i++) {
+            System.out.println("i " + i);
+//            String hostUrl = "http://5.79.83.118:8090";
+            String hostUrl = "http://0.0.0.0:8080";
+            String uri = "/sm/startSession";
+            List<NameValuePair> postParams = new ArrayList();
+            try {
+                System.out.println("**");
+                sessionId = "";
+                SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams,1), SessionMngrResponse.class);
+                sessionId = resp.getSessionData().getSessionId();
+                System.out.println("--");
+                uri = "/sm/generateToken";
+                postParams.clear();
+                postParams.add(new NameValuePair("sessionId", sessionId));
+                postParams.add(new NameValuePair("sender", "ACMms001"));
+                postParams.add(new NameValuePair("receiver", "IdPms001"));
+                resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, postParams,1), SessionMngrResponse.class);
+//                if (resp.getCode().equals(ResponseCode.ERROR)) {
+//                    System.out.println("------------------------");
+//                    System.out.println(resp.getError());
+//                    System.out.println("------------------------");
+//                }
+            } catch (InternalServerError e) {
+                System.out.println("Error  " + i);
+                System.out.println(e.getMessage());
+                System.out.println(sessionId);
+                throw new NullPointerException("fml");
+
+            }
+
+        }
     }
 
 }

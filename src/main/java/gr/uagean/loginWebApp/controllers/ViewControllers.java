@@ -106,7 +106,6 @@ public class ViewControllers {
         mv.addObject("natural", propServ.getNaturalProperties());
         String urlPrefix = StringUtils.isEmpty(paramServ.getParam(URL_PREFIX)) ? "" : paramServ.getParam(URL_PREFIX);
 
-        boolean linkedIn = StringUtils.isEmpty(paramServ.getParam("LINKED_IN")) ? false : Boolean.parseBoolean(paramServ.getParam("LINKED_IN"));
         String clientID = paramServ.getParam(CLIENT_ID);
         String redirectURI = paramServ.getParam(REDIRECT_URI);
         String responseType = "code";
@@ -122,7 +121,7 @@ public class ViewControllers {
 
         Cache memCache = this.cacheManager.getCache(MemCacheConfig.IDPMS_SESSION);
         if (!StringUtils.isEmpty(session) && memCache != null && memCache.get(session) != null) {
-            mv.addObject("IdPMSSession", (String) memCache.get(session).get());
+            mv.addObject("IdPMSSession", session);
         }
 
         // TODO hide stuff that are not related to esmo from the view

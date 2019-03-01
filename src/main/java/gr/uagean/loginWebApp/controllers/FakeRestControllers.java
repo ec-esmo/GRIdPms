@@ -94,7 +94,7 @@ public class FakeRestControllers {
         List<NameValuePair> getParams = new ArrayList();
         getParams.add(new NameValuePair("token", token));
 
-        SessionMngrResponse resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/validateToken", getParams), SessionMngrResponse.class);
+        SessionMngrResponse resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/validateToken", getParams,1), SessionMngrResponse.class);
         if (resp.getCode().toString().equals("OK") && StringUtils.isEmpty(resp.getError())) {
             String sessionId = resp.getSessionData().getSessionId();
             String idpMsSessionId = UUID.randomUUID().toString();
@@ -102,7 +102,7 @@ public class FakeRestControllers {
             //calls SM, “/sm/getSessionData” to get the session object that must contain the variables idpRequest, idpMetadata 
             getParams.clear();
             getParams.add(new NameValuePair("sessionId", sessionId));
-            resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSessionData", getParams), SessionMngrResponse.class);
+            resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSessionData", getParams,1), SessionMngrResponse.class);
             String idpRequest = (String) resp.getSessionData().getSessionVariables().get("idpRequest");
             //TODO check the IDP metdata?
             String idpMetadata = (String) resp.getSessionData().getSessionVariables().get("idpMetadata");
@@ -123,13 +123,13 @@ public class FakeRestControllers {
             //update the esmoGW session with the idp sessionId
             String eidasSession = "fakeEidasId" + UUID.randomUUID().toString();
             UpdateDataRequest updateReq = new UpdateDataRequest(sessionId, "GR_eIDAS_IdP_Session", eidasSession);
-            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
+            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json",1), SessionMngrResponse.class);
 
             //receives response containing the external identifier and retrieves the internal identifier by calling, get “/sm/getSession”
             List<NameValuePair> requestParams = new ArrayList();
             requestParams.add(new NameValuePair("varName", "GR_eIDAS_IdP_Session"));
             requestParams.add(new NameValuePair("varValue", eidasSession));
-            resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSession", requestParams), SessionMngrResponse.class);
+            resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/getSession", requestParams,1), SessionMngrResponse.class);
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
                 model.addAttribute("error", resp.getError());
@@ -147,7 +147,7 @@ public class FakeRestControllers {
             requestParams.add(new NameValuePair("sessionId", resp.getSessionData().getSessionId()));
             String smSessionId = resp.getSessionData().getSessionId();
             updateReq = new UpdateDataRequest(smSessionId, "dsResponse", attributSetString);
-            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
+            resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json",1), SessionMngrResponse.class);
 
             if (!resp.getCode().toString().equals("OK")) {
                 LOG.error("ERROR: " + resp.getError());
@@ -160,7 +160,7 @@ public class FakeRestControllers {
             requestParams.clear();
             if (metadataServ != null && metadataServ.getMetadata() != null) {
                 updateReq = new UpdateDataRequest(smSessionId, "dsMetadata", mapper.writeValueAsString(metadataServ.getMetadata()));
-                resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json"), SessionMngrResponse.class);
+                resp = mapper.readValue(netServ.sendPostBody(sessionMngrUrl, "/sm/updateSessionData", updateReq, "application/json",1), SessionMngrResponse.class);
                 if (!resp.getCode().toString().equals("OK")) {
                     LOG.error("ERROR: " + resp.getError());
                     model.addAttribute("error", resp.getError());
@@ -171,9 +171,9 @@ public class FakeRestControllers {
             //IdP Connector generates a new security token to send to the ACM, by calling get “/sm/generateToken” 
             requestParams.clear();
             requestParams.add(new NameValuePair("sessionId", smSessionId));
-            requestParams.add(new NameValuePair("sender", "IdPms001")); //[TODO] add correct sender
-            requestParams.add(new NameValuePair("receiver", "ACMms001"));
-            resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/generateToken", requestParams), SessionMngrResponse.class);
+            requestParams.add(new NameValuePair("sender", paramServ.getParam("REDIRECT_JWT_SENDER"))); //[TODO] add correct sender "IdPms001"
+            requestParams.add(new NameValuePair("receiver", paramServ.getParam("REDIRECT_JWT_RECEIVER"))); //"ACMms001"
+            resp = mapper.readValue(netServ.sendGet(sessionMngrUrl, "/sm/generateToken", requestParams,1), SessionMngrResponse.class);
             if (!resp.getCode().toString().equals("NEW")) {
                 LOG.error("ERROR: " + resp.getError());
                 return "errorPage";
