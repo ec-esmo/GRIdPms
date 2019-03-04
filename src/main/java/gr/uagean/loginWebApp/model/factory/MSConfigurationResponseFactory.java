@@ -7,7 +7,8 @@ package gr.uagean.loginWebApp.model.factory;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import gr.uagean.loginWebApp.model.pojo.MSConfigurationResponse;
+import gr.uagean.loginWebApp.model.pojo.MSConfigurationResponse.MicroService;
+
 import java.io.IOException;
 
 /**
@@ -16,10 +17,10 @@ import java.io.IOException;
  */
 public class MSConfigurationResponseFactory {
 
-    public static MSConfigurationResponse makeMSConfigResponseFromJSON(String json) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        return mapper.readValue(json, MSConfigurationResponse.class);
+    public static MicroService[] makeMSConfigResponseFromJSON(String json) throws IOException {
+        ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+//        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        return mapper.readValue(json, MicroService[].class);
     }
 
 }

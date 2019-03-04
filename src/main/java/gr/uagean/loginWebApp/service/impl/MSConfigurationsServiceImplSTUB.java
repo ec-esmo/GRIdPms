@@ -40,7 +40,7 @@ public class MSConfigurationsServiceImplSTUB implements MSConfigurationService {
     private final static Logger log = LoggerFactory.getLogger(MSConfigurationsServiceImplSTUB.class);
 
     @Override
-    public MSConfigurationResponse getConfigurationJSON() {
+    public MicroService[] getConfigurationJSON() {
 
         try {
             return MSConfigurationResponseFactory.makeMSConfigResponseFromJSON(getFile("configurationResponse.json"));
@@ -71,8 +71,8 @@ public class MSConfigurationsServiceImplSTUB implements MSConfigurationService {
 
     @Override
     public Optional<String> getMsIDfromRSAFingerprint(String rsaFingerPrint) throws IOException {
-        MSConfigurationResponse configResp = MSConfigurationResponseFactory.makeMSConfigResponseFromJSON(getFile("configurationResponse.json"));
-        Optional<MicroService> msMatch = Arrays.stream(configResp.getMs()).filter(msConfig -> {
+        MicroService[]  configResp = MSConfigurationResponseFactory.makeMSConfigResponseFromJSON(getFile("configurationResponse.json"));
+        Optional<MicroService> msMatch = Arrays.stream(configResp).filter(msConfig -> {
             return DigestUtils.sha256Hex(msConfig.getRsaPublicKeyBinary()).equals(rsaFingerPrint);
         }).findFirst();
 
@@ -85,8 +85,8 @@ public class MSConfigurationsServiceImplSTUB implements MSConfigurationService {
 
     @Override
     public Optional<PublicKey> getPublicKeyFromFingerPrint(String rsaFingerPrint) throws InvalidKeyException, IOException, NoSuchAlgorithmException, InvalidKeySpecException {
-        MSConfigurationResponse configResp = MSConfigurationResponseFactory.makeMSConfigResponseFromJSON(getFile("configurationResponse.json"));
-        Optional<MicroService> msMatch = Arrays.stream(configResp.getMs()).filter(msConfig -> {
+        MicroService[]  configResp = MSConfigurationResponseFactory.makeMSConfigResponseFromJSON(getFile("configurationResponse.json"));
+        Optional<MicroService> msMatch = Arrays.stream(configResp).filter(msConfig -> {
             return DigestUtils.sha256Hex(msConfig.getRsaPublicKeyBinary()).equals(rsaFingerPrint);
         }).findFirst();
 
@@ -98,6 +98,11 @@ public class MSConfigurationsServiceImplSTUB implements MSConfigurationService {
             return Optional.of(keyFactory.generatePublic(keySpec));
         }
         return Optional.empty();
+    }
+
+    @Override
+    public String getMsEndpointByIdAndApiCall(String msId, String apiType) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

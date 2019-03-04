@@ -18,6 +18,8 @@ import gr.uagean.loginWebApp.model.pojo.SessionMngrResponse;
 import gr.uagean.loginWebApp.model.pojo.UpdateDataRequest;
 import gr.uagean.loginWebApp.service.HttpSignatureService;
 import gr.uagean.loginWebApp.service.KeyStoreService;
+import gr.uagean.loginWebApp.service.MSConfigurationService;
+import gr.uagean.loginWebApp.service.ParameterService;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -37,6 +39,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import gr.uagean.loginWebApp.service.impl.HttpSignatureServiceImpl;
+import gr.uagean.loginWebApp.service.impl.MSConfigurationServiceImpl;
 import gr.uagean.loginWebApp.service.impl.NetworkServiceImpl;
 import java.security.Key;
 import java.security.KeyStoreException;
@@ -63,6 +66,9 @@ public class TestSessisonManagerConnection {
     @Autowired
     private KeyStoreService keyServ;
 
+    @Autowired
+    private ParameterService paramServ;
+
     private NetworkServiceImpl netServ;
     private ObjectMapper mapper;
 
@@ -81,7 +87,7 @@ public class TestSessisonManagerConnection {
         String uri = "/sm/startSession";
         List<NameValuePair> postParams = new ArrayList();
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams,1), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams, 1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         System.out.println(resp.getSessionData().getSessionId());
 
@@ -107,7 +113,7 @@ public class TestSessisonManagerConnection {
 
         UpdateDataRequest updateReq = new UpdateDataRequest("182b548a-af37-41fd-8c6f-1a797eda2a0b", "idpRequest", attrSetString);
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, "/sm/updateSessionData", updateReq, "application/json",1), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, "/sm/updateSessionData", updateReq, "application/json", 1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
 
         assertEquals(resp.getCode().toString(), "OK");
@@ -124,7 +130,7 @@ public class TestSessisonManagerConnection {
         NameValuePair val = new NameValuePair("sessionId", "182b548a-af37-41fd-8c6f-1a797eda2a0b");
         getParams.add(val);
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, getParams,1), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, getParams, 1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         assertEquals(resp.getCode().toString(), "OK");
 
@@ -136,7 +142,7 @@ public class TestSessisonManagerConnection {
         String uri = "/sm/startSession";
         List<NameValuePair> postParams = new ArrayList();
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams,1), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams, 1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         String sessionId = resp.getSessionData().getSessionId();
 
@@ -153,7 +159,7 @@ public class TestSessisonManagerConnection {
         postParams.add(new NameValuePair("variableName", "idpRequest"));
 
         UpdateDataRequest updateReq = new UpdateDataRequest(sessionId, "idpRequest", attrSetString);
-        resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, "/sm/updateSessionData", updateReq, "application/json;charset=UTF-8",1), SessionMngrResponse.class);
+        resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, "/sm/updateSessionData", updateReq, "application/json;charset=UTF-8", 1), SessionMngrResponse.class);
 
         assertEquals(resp.getCode().toString(), "OK");
 
@@ -164,7 +170,7 @@ public class TestSessisonManagerConnection {
         getParams.add(new NameValuePair("receiver", "ACMms001"));
         getParams.add(new NameValuePair("sender", "ACMms001"));
 
-        resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, getParams,1), SessionMngrResponse.class);
+        resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, getParams, 1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         System.out.println(resp.getAdditionalData());
 
@@ -179,7 +185,7 @@ public class TestSessisonManagerConnection {
         String uri = "/sm/startSession";
         List<NameValuePair> postParams = new ArrayList();
 
-        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams,1), SessionMngrResponse.class);
+        SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams, 1), SessionMngrResponse.class);
         System.out.println(resp.getCode());
         String sessionId = resp.getSessionData().getSessionId();
 
@@ -198,14 +204,14 @@ public class TestSessisonManagerConnection {
         updateDR.setSessionId(sessionId);
         updateDR.setVariableName("idpRequest");
         updateDR.setDataObject(attrSetString);
-        resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, uri, updateDR, "application/json",1), SessionMngrResponse.class);
+        resp = this.mapper.readValue(netServ.sendPostBody(hostUrl, uri, updateDR, "application/json", 1), SessionMngrResponse.class);
 
         uri = "/sm/generateToken";
         postParams.clear();
         postParams.add(new NameValuePair("sessionId", sessionId));
         postParams.add(new NameValuePair("sender", "ACMms001"));
         postParams.add(new NameValuePair("receiver", "IdPms001"));
-        resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, postParams,1), SessionMngrResponse.class);
+        resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, postParams, 1), SessionMngrResponse.class);
         String token = resp.getAdditionalData();
 
         mvc.perform(get("/fakeSm//idp/authenticate?msToken=" + token))
@@ -226,7 +232,7 @@ public class TestSessisonManagerConnection {
             try {
                 System.out.println("**");
                 sessionId = "";
-                SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams,1), SessionMngrResponse.class);
+                SessionMngrResponse resp = this.mapper.readValue(netServ.sendPostForm(hostUrl, uri, postParams, 1), SessionMngrResponse.class);
                 sessionId = resp.getSessionData().getSessionId();
                 System.out.println("--");
                 uri = "/sm/generateToken";
@@ -234,7 +240,7 @@ public class TestSessisonManagerConnection {
                 postParams.add(new NameValuePair("sessionId", sessionId));
                 postParams.add(new NameValuePair("sender", "ACMms001"));
                 postParams.add(new NameValuePair("receiver", "IdPms001"));
-                resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, postParams,1), SessionMngrResponse.class);
+                resp = this.mapper.readValue(netServ.sendGet(hostUrl, uri, postParams, 1), SessionMngrResponse.class);
 //                if (resp.getCode().equals(ResponseCode.ERROR)) {
 //                    System.out.println("------------------------");
 //                    System.out.println(resp.getError());
@@ -249,6 +255,15 @@ public class TestSessisonManagerConnection {
             }
 
         }
+    }
+
+    @Test
+    public void getEndpointFromMSConfig() throws InvalidKeySpecException, IOException, KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException {
+
+        MSConfigurationService msConf = new MSConfigurationServiceImpl(paramServ, netServ, keyServ);
+
+        assertEquals(msConf.getMsEndpointByIdAndApiCall("ACMms001", "acmRequest"), "http://5.79.83.118:8070/acm/request");
+
     }
 
 }

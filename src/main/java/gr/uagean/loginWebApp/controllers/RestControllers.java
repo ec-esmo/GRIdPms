@@ -21,6 +21,7 @@ import gr.uagean.loginWebApp.service.EidasPropertiesService;
 import gr.uagean.loginWebApp.service.EsmoMetadataService;
 import gr.uagean.loginWebApp.service.HttpSignatureService;
 import gr.uagean.loginWebApp.service.KeyStoreService;
+import gr.uagean.loginWebApp.service.MSConfigurationService;
 import gr.uagean.loginWebApp.service.NetworkService;
 import gr.uagean.loginWebApp.service.ParameterService;
 import gr.uagean.loginWebApp.service.impl.HttpSignatureServiceImpl;
@@ -88,6 +89,11 @@ public class RestControllers {
     @Autowired
     private EsmoMetadataService metadataServ;
 
+    
+    @Autowired
+    private MSConfigurationService configServ;
+    
+    
     @Value("${eidas.error.consent}")
     private String EIDAS_CONSENT_ERROR;
     @Value("${eidas.error.qaa}")
@@ -240,7 +246,8 @@ public class RestControllers {
                 //IdP calls, post  /acm/response
                 String acmUrl = paramServ.getParam("ACM_URL");
                 model.addAttribute("msToken", msToken);
-                model.addAttribute("acmUrl", acmUrl + "/acm/response");
+//                model.addAttribute("acmUrl", acmUrl + "/acm/response");
+                model.addAttribute("acmUrl", configServ.getMsEndpointByIdAndApiCall(paramServ.getParam("ACM_ID"), "acmResponse"));
                 return "acmRedirect";
             }
         } catch (IOException | KeyStoreException | NoSuchAlgorithmException e) {

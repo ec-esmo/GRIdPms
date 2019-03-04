@@ -1,47 +1,174 @@
-{
-    "ms": 
-            [{
-                    "msID": "SAMLms001",
-                    "msType": "SP_AP_IDP", 
-                    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqGKukO1De7zhZj6+H0qtjTkVxwTCpvKe4eCZ0FPqri0cb2JZfXJ/DgYSF6vUpwmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/3j+skZ6UtW+5u09lHNsj6tQ51s1SPrCBkedbNf0Tp0GbMJDyR4e9T04ZZwIDAQAB",
-                    "publishedAPI": 
-                            [{
-                                    "apiClass": "AP",
-                                    "apiCall": "DCARequest",
-                                    "apiConnectionType": "post",
-                                    "url": "https://example.com/esmo/SAMLms/001/DCARequest"
-                                },
-                                {
-                                    "apiClass": "SP",
-                                    "apiCall": "AuthnResponse",
-                                    "apiConnectionType": "post",
-                                    "url": "https://example.com/esmo/SAMLms/001/SP_AuthnResponse"
-                                },
-                                {
-                                    "apiClass": "IdP",
-                                    "apiCall": "AuthnRequest",
-                                    "apiConnectionType": "post",
-                                    "url": "https://example.com/esmo/SAMLms/001/IDP_AuthnRequest"
-                                }
-                            ]
-                },
-                {
-                    "msID": "ACMms001",
-                    "msType": "ACM",
-                    "rsaPublicKeyBinary": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkvZf4Lm7dqp17tk/ICI+cCilI3yLfQraHy4pxFYDNn29l9eHnYRFnN9jBKKvOzSxf2zQkigNcHhIi96s7G4/xPL3rVaYepp/xfCKn5vkZeqg1PFOE0HqDKCnIbLxNdnHYDLICQrd1PRTdFHnwRpLouF6B3PCZpQL5XxX3WFzg2KZ2U1NIdVLJjWb3AY1SJ4kIYAOIwn6AZQPum4i5G4M9QQj3KGl164007TUx27rxzBVILpm+knxYjUiipqZ/5kiDdTxYBPR0qDVIhSl3hk9RhSI95s7unrll8rb3E8w1ORrfTQNg1UlpGgww3jZi3GLScLEK3ghwg5H5gL/2SSiEwIDAQAB",
-                    "publishedAPI": 
-                            [{
-                                    "apiClass": "ACM",
-                                    "apiCall": "DSARequest",
-                                    "apiConnectionType": "post",
-                                    "url": "https://example.com/esmo/ACMms/001/DSARequest"
-                                },
-                                {
-                                    "apiClass": "ACM",
-                                    "apiCall": "DSAResponse",
-                                    "apiConnectionType": "post",
-                                    "url": "https://example.com/esmo/ACMms/001/DSAResponse"
-                                }]
-                }
-            ]
-}
+[
+  {
+    "msId": "SAMLms_0001",
+    "authorisedMicroservices": [
+      "ACMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "AP",
+        "apiCall": "query",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://stork.uji.es/clave1b/module.php/esmo/ap/query.php/saml2"
+      },
+      {
+        "apiClass": "SP",
+        "apiCall": "handleResponse",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://stork.uji.es/esmoSPms/module.php/esmo/sp/response.php/esmo"
+      },
+      {
+        "apiClass": "IDP",
+        "apiCall": "authenticate",
+        "apiConnectionType": "post",
+        "apiEndpoint": "https://stork.uji.es/clave1b/module.php/esmo/idp/authenticate.php/eidas"
+      }
+    ]
+  },
+  {
+    "msId": "CMms001",
+    "authorisedMicroservices": [
+      "SAMLms001",
+      "SMms001",
+      "ACMms001",
+      "GW2GWms001",
+      "IDPms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "CM",
+        "apiCall": "microservices",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://5.79.83.118:8080/cm/metadata/microservices"
+      },
+      {
+        "apiClass": "CM",
+        "apiCall": "externalEntities",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://5.79.83.118:8080/cm/metadata/externalEntities"
+      },
+      {
+        "apiClass": "CM",
+        "apiCall": "attributes",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://5.79.83.118:8080/cm/metadata/attributes"
+      }
+    ]
+  },
+  {
+    "msId": "ACMms001",
+    "authorisedMicroservices": [
+      "SAMLms001",
+      "GW2GWms001",
+      "SMms001",
+      "CMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "ACM",
+        "apiCall": "acmRequest",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://5.79.83.118:8070/acm/request"
+      },
+      {
+        "apiClass": "ACM",
+        "apiCall": "acmResponse",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://5.79.83.118:8070/acm/response"
+      }
+    ]
+  },
+  {
+    "msId": "GW2GWms001",
+    "authorisedMicroservices": [
+      "ACMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "GW",
+        "apiCall": "query",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://5.79.83.118:8050/gw/query"
+      },
+      {
+        "apiClass": "GW",
+        "apiCall": "responseAssertions",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://5.79.83.118:8050/gw/responseAssertions"
+      }
+    ]
+  },
+  {
+    "msId": "SMms001",
+    "authorisedMicroservices": [
+      "ACMms001",
+      "IDPms001",
+      "SAMLms001",
+      "GW2GWms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "SM",
+        "apiCall": "endSession",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://5.79.83.118:8090/sm/endSession"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "generateToken",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://5.79.83.118:8090/sm/generateToken"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "getSession",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://5.79.83.118:8090/sm/getSession"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "getSessionData",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://5.79.83.118:8090/sm/getSessionData"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "startSession",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://5.79.83.118:8090/sm/startSession"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "updateSessionData",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://5.79.83.118:8090/sm/updateSessionData"
+      },
+      {
+        "apiClass": "SM",
+        "apiCall": "validateToken",
+        "apiConnectionType": "get",
+        "apiEndpoint": "http://5.79.83.118:8090/sm/validateToken"
+      }
+    ]
+  },
+  {
+    "msId": "IdPms001",
+    "authorisedMicroservices": [
+      "ACMms001"
+    ],
+    "rsaPublicKeyBinary": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi7jZVwQFxQ2SY4lxjr05IexolQJJobwYzrvE5pk7AcQpG46kuJBzD8ziiqFFCGSNZ07cLWys+b5JmJ6kU44lKLVeGbEpgaO0OTBDLMk2fi5U83T8dezgWgaPFiy/N3sHPpcW2Y3ZePo0UbM7MLzv14TR+jxTOyrmwWwGwDJsz+wIDAQAB",
+    "publishedAPI": [
+      {
+        "apiClass": "IDP",
+        "apiCall": "authenticate",
+        "apiConnectionType": "post",
+        "apiEndpoint": "http://5.79.83.118:8091/fakeSm/idp/authenticate"
+      }
+    ]
+  }
+]

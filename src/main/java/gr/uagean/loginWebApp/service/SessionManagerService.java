@@ -13,10 +13,10 @@ import gr.uagean.loginWebApp.model.pojo.SessionMngrResponse;
  */
 public interface SessionManagerService {
     
-    public SessionMngrResponse validateToken(String token);
-    public SessionMngrResponse getSession(String sessionId);
-    public SessionMngrResponse updateSessionData(String variableName, String value);
-    public SessionMngrResponse generateToken(String sessionId);
+   public String getUpdateSessionDataUrl();
+   public String getGetSessionUrl();
+   public String getGenerateTokenUrl();
+   public String getValidateTokenUrl();
     
     
 }

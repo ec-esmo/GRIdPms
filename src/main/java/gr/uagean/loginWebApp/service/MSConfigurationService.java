@@ -6,6 +6,7 @@
 package gr.uagean.loginWebApp.service;
 
 import gr.uagean.loginWebApp.model.pojo.MSConfigurationResponse;
+import gr.uagean.loginWebApp.model.pojo.MSConfigurationResponse.MicroService;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -18,9 +19,13 @@ import java.util.Optional;
  * @author nikos
  */
 public interface MSConfigurationService {
-    
-    public MSConfigurationResponse getConfigurationJSON();
+
+    public MicroService[] getConfigurationJSON();
+
     public Optional<String> getMsIDfromRSAFingerprint(String rsaFingerPrint) throws IOException;
+
     public Optional<PublicKey> getPublicKeyFromFingerPrint(String rsaFingerPrint) throws InvalidKeyException, IOException, NoSuchAlgorithmException, InvalidKeySpecException;
+
+    public String getMsEndpointByIdAndApiCall(String msId, String apiCall);
 
 }

@@ -61,7 +61,7 @@ public class TestRestControllersConfig {
         Mockito.when(paramServ().getParam("ESMO_SUPPORTED_ENC_ALGORITHMS")).thenReturn("RSA");
         Mockito.when(paramServ().getParam("REDIRECT_JWT_SENDER")).thenReturn("IdPms001");
         Mockito.when(paramServ().getParam("REDIRECT_JWT_RECEIVER")).thenReturn("ACMms001");
-        
+        Mockito.when(paramServ().getParam("CONFIGURATION_MANAGER_URL")).thenReturn("http://5.79.83.118:8080");
         return new KeyStoreServiceImpl(paramServ());
     }
 }

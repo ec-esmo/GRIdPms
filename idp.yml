@@ -15,7 +15,8 @@ services:
             - ASYNC_SIGNATURE=true
             - EXPIRES=5
             - CONFIG_JSON=/resources/configurationResponse.json
-            - ACM_URL=http://5.79.83.118:8080
+#            - ACM_URL=http://5.79.83.118:8080
+            - ACM_ID=ACMms001
 #            - SESSION_MANAGER_URL=http://172.17.0.1:8090
             - SESSION_MANAGER_URL=http://5.79.83.118:8090
             - CONFIGURATION_MANAGER_URL=http://5.79.83.118:8080
