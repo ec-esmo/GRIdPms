@@ -42,6 +42,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.httpclient.NameValuePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -120,7 +121,7 @@ public class RestControllers {
     public RestControllers(KeyStoreService keyServ) throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException, UnsupportedEncodingException, InvalidKeySpecException, IOException {
         this.keyServ = keyServ;
         Key signingKey = this.keyServ.getSigningKey();
-        String fingerPrint = "7a9ba747ab5ac50e640a07d90611ce612b7bde775457f2e57b804517a87c813b"; //TODO
+        String fingerPrint = DigestUtils.sha256Hex(this.keyServ.getHttpSigPublicKey().getEncoded());
         HttpSignatureService httpSigServ = new HttpSignatureServiceImpl(fingerPrint, signingKey);
         this.netServ = new NetworkServiceImpl(httpSigServ);
     }
@@ -244,7 +245,7 @@ public class RestControllers {
             } else {
                 String msToken = resp.getAdditionalData();
                 //IdP calls, post  /acm/response
-                String acmUrl = paramServ.getParam("ACM_URL");
+//                String acmUrl = paramServ.getParam("ACM_URL");
                 model.addAttribute("msToken", msToken);
 //                model.addAttribute("acmUrl", acmUrl + "/acm/response");
                 model.addAttribute("acmUrl", configServ.getMsEndpointByIdAndApiCall(paramServ.getParam("ACM_ID"), "acmResponse"));

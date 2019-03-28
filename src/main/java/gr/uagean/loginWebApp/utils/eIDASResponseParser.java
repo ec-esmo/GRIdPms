@@ -22,6 +22,9 @@ public class eIDASResponseParser {
 
     public final static String ATTRIBUTES_KEY = "attributes";
     public final static String METADATA_KEY = "metadata";
+    public final static String NOT_BEFORE_KEY = "notBefore";
+    public final static String NOT_AFTER_KEY = "notAfter";
+    public final static String NAME_ID_KEY = "NameID";
 
     private final static Pattern namePattern = Pattern.compile("friendlyName='(.*?)'");
     private final static Pattern uriPattern = Pattern.compile("nameUri='(.*?)'");
@@ -100,26 +103,43 @@ public class eIDASResponseParser {
 
         return result;
     }
-    
+
     public static String parseToMetadata(String eIDASRMetadataPart) throws IndexOutOfBoundsException {
         //"'AuthenticationResponse{id='_YLc6H3WhE2mjssJZHnJyOIvuRFBPIHsfszeGwVzAipyXS2csl7SlpVbKjUo4UOp', 
         //issuer='http://84.205.248.180:80/EidasNode/ConnectorResponderMetadata', status='ResponseStatus{failure='false', statusCode='urn:oasis:names:tc:SAML:2.0:status:Success', 
         //statusMessage='urn:oasis:names:tc:SAML:2.0:status:Success', subStatusCode='null'}', ipAddress='null', 
         //inResponseToId='_BJK3gNxljIfI.hOeabwBjO5ZFE54BPHQXmG9gEoXNb.BMgIN4LRZRzY18-ZyG6m', levelOfAssurance='http://eidas.europa.eu/LoA/low', 
-        
+
         //audienceRestriction='http://138.68.103.237:8090/metadata', notOnOrAfter='2017-09-16T08:16:21.191Z', notBefore='2017-09-16T08:11:21.191Z', country='CA', encrypted='false'}'";
-        return eIDASRMetadataPart.split("levelOfAssurance=")[1].replace(",","").replace("'", "").trim();
+        return eIDASRMetadataPart.split("levelOfAssurance=")[1].replace(",", "").replace("'", "").trim();
     }
-    
+
+    public static String notBefore(String eIDASAttributesPart) {
+        String[] split = eIDASAttributesPart.split("notBefore");
+        return split[1].split(",")[0].replace("=", "").replace("'", "");
+    }
+
+    public static String notAfter(String eIDASAttributesPart) {
+        String[] split = eIDASAttributesPart.split("notOnOrAfter");
+        return split[1].split(",")[0].replace("=", "").replace("'", "");
+    }
 
     public static Map<String, Object> parseToESMOAttributeSet(String eIDASResponse) throws IndexOutOfBoundsException {
         String[] parts = eIDASResponse.split("attributes='");
         String attributePart = parts[1];
         String metdataPart = parts[0];
         List<AttributeType> attributes = parseToAttributeType(attributePart);
-        Map<String,Object> result = new HashMap();
+
+        String nameID= attributes.stream().filter(attr -> {
+            return attr.getFriendlyName().equals("PersonIdentifier");
+        }).findFirst().get().getValues()[0];
+        
+        Map<String, Object> result = new HashMap();
         result.put(ATTRIBUTES_KEY, attributes);
-        result.put(METADATA_KEY,parseToMetadata(metdataPart));
+        result.put(METADATA_KEY, parseToMetadata(metdataPart));
+        result.put(NOT_BEFORE_KEY, notBefore(attributePart));
+        result.put(NOT_AFTER_KEY, notAfter(attributePart));
+        result.put(NAME_ID_KEY, nameID);
         return result;
     }
 

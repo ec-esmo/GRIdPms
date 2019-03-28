@@ -58,7 +58,9 @@ public class MSConfigurationServiceImpl implements MSConfigurationService {
 
         this.keyServ = keyServ;
         Key signingKey = this.keyServ.getSigningKey();
-        String fingerPrint = "7a9ba747ab5ac50e640a07d90611ce612b7bde775457f2e57b804517a87c813b";
+        //TODO
+//        String fingerPrint = "7a9ba747ab5ac50e640a07d90611ce612b7bde775457f2e57b804517a87c813b";
+        String fingerPrint = DigestUtils.sha256Hex(this.keyServ.getHttpSigPublicKey().getEncoded());
         this.sigServ = new HttpSignatureServiceImpl(fingerPrint, signingKey);
         this.netServ = new NetworkServiceImpl(sigServ);
     }

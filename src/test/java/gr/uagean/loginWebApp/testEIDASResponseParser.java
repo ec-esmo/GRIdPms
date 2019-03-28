@@ -7,6 +7,9 @@ package gr.uagean.loginWebApp;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import gr.uagean.loginWebApp.model.enums.TypeEnum;
+import static gr.uagean.loginWebApp.model.factory.AttributeSetFactory.makeFromEidasResponse;
+import gr.uagean.loginWebApp.model.pojo.AttributeSet;
 import gr.uagean.loginWebApp.model.pojo.AttributeType;
 import gr.uagean.loginWebApp.utils.eIDASResponseParser;
 import java.util.List;
@@ -34,15 +37,6 @@ public class testEIDASResponseParser {
     }
 
     @Test
-    public void testJSONString() throws JsonProcessingException {
-        String expected = "{\"firstName\":\"cph8\",\"eid\":\"CA/CA/Cph123456\",\"familyName\":\"cph8\",\"personIdentifier\":\"CA/CA/Cph123456\",\"dateOfBirth\":\"1966-01-01\"}";
-        Map<String, String> map = eIDASResponseParser.parse(testResponse);
-        ObjectMapper mapper = new ObjectMapper();
-
-        assertEquals(mapper.writeValueAsString(map), expected);
-    }
-
-    @Test
     public void testAttributeTypeParser() {
         List<AttributeType> attr = eIDASResponseParser.parseToAttributeType(testResponse.split("attributes='")[1]);
         assertEquals(attr.size(), 4);
@@ -52,6 +46,20 @@ public class testEIDASResponseParser {
     @Test
     public void testGetEidasResponseMetadata() {
         assertEquals(eIDASResponseParser.parseToMetadata(testResponse.split("attributes='")[0]), "http://eidas.europa.eu/LoA/low");
+    }
+
+    @Test
+    public void testNotBeofre() {
+        Map<String, Object> res = eIDASResponseParser.parseToESMOAttributeSet(testResponse);
+        System.out.println(res.get(eIDASResponseParser.NOT_BEFORE_KEY));
+        assertEquals("2017-09-16T08:11:21.191Z", res.get(eIDASResponseParser.NOT_BEFORE_KEY));
+
+    }
+
+    @Test
+    public void testNameID() {
+        AttributeSet atSet = makeFromEidasResponse("id", TypeEnum.Response, "issuer", "recipient", testResponse);
+        assertEquals("CA/CA/Cph123456", atSet.getProperties().get("NameID"));
     }
 
 }
