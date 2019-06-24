@@ -5,8 +5,6 @@
  */
 package gr.uagean.loginWebApp.controllers;
 
-import eu.eidas.sp.SpEidasSamlTools;
-import gr.uagean.loginWebApp.MemCacheConfig;
 import gr.uagean.loginWebApp.model.pojo.LinkedInAuthAccessToken;
 import gr.uagean.loginWebApp.service.CountryService;
 import gr.uagean.loginWebApp.service.EidasPropertiesService;
@@ -21,7 +19,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -92,11 +89,12 @@ public class ViewControllers {
     @Autowired
     private CacheManager cacheManager;
 
-    @RequestMapping("/login")
-    public ModelAndView loginView(HttpServletRequest request, @RequestParam String session) {
+    @RequestMapping(value = {"/login", "/idp/login", "gr/idp/login"}, method = {RequestMethod.GET, RequestMethod.POST})
+    public ModelAndView loginView(HttpServletRequest request, @RequestParam(value = "sessionId", required = true) String idpMsSession) {
 
         ModelAndView mv = new ModelAndView("login");
-        mv.addObject("nodeUrl", SpEidasSamlTools.getNodeUrl());
+//        mv.addObject("nodeUrl", SpEidasSamlTools.getNodeUrl());
+        mv.addObject("nodeUrl", this.paramServ.getParam("EIDAS_NODE_URL"));
         mv.addObject("countries", countryServ.getEnabled());
         mv.addObject("spFailPage", System.getenv(SP_FAIL_PAGE));
         mv.addObject("spSuccessPage", System.getenv(SP_SUCCESS_PAGE));
@@ -119,10 +117,7 @@ public class ViewControllers {
 
         mv.addObject("urlPrefix", urlPrefix);
 
-        Cache memCache = this.cacheManager.getCache(MemCacheConfig.IDPMS_SESSION);
-        if (!StringUtils.isEmpty(session) && memCache != null && memCache.get(session) != null) {
-            mv.addObject("IdPMSSession", session);
-        }
+        mv.addObject("idpMsSession", idpMsSession);
 
         // TODO hide stuff that are not related to esmo from the view
         return mv;
@@ -153,6 +148,9 @@ public class ViewControllers {
                 case "fail":
                     model.addAttribute("title", "Non-sucessful authentication");
                     model.addAttribute("errorMsg", "Please, return to the home page and re-initialize the process. If the authentication fails again, please contact your national eID provider");
+                    break;
+                case "esmo":
+                    model.addAttribute("title", "Non-sucessful authentication");
                     break;
                 default:
                     model.addAttribute("errorType", "CANCEL");
@@ -207,7 +205,7 @@ public class ViewControllers {
                     .exchange("https://www.linkedin.com/oauth/v2/accessToken", HttpMethod.POST, request, LinkedInAuthAccessToken.class
                     );
 
-            // get User Data using accessToken 
+            // get User Data using accessToken
             HttpHeaders headersUser = new HttpHeaders();
             headersUser.setContentType(MediaType.APPLICATION_JSON);
             headersUser.set("Authorization", "Bearer " + response.getBody().getAccess_token());

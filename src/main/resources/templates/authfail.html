@@ -12,7 +12,7 @@
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"></link>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-        <link rel="stylesheet" th:href="${urlPrefix + '/css/main.css'}"></link>
+        <link rel="stylesheet" th:href="${urlPrefix + '/eidas/css/main.css'}"></link>
         <link rel="icon"
               type="image/x-icon"
               href="favicon.ico"></link>
@@ -58,11 +58,19 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" th:if="${sessionId != null}">
                             <div class="col s12 m12 l6 " style="margin-top: 1rem;">
-                                <a class="waves-effect waves-light btn swell-btn next-btn" onclick="onHomeClick()">Home</a>
+                                <a class="waves-effect waves-light btn swell-btn next-btn" onclick="onHomeClick()">Return to ESMO</a>
+                                <input type="hidden"  id="sessionId" th:value="${sessionId}"/>
                             </div>
                         </div>
+
+                        <div class="row" th:if="${sessionId == null}">
+                            <div class="col s12 m12 l6 " style="margin-top: 1rem;">
+                                Unfortunately, the session cannot be recovered. Please restart the process manually. 
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -83,41 +91,25 @@
         <script th:inline="javascript">
                                     /*<![CDATA[*/
                                     $(document).ready(function () {
-                                    $('select').material_select();
-                                    $('.modal').modal();
-                                    if (!$('#countrySelection').val()) {
-                                    $('#next').removeClass("waves-effect waves-light submit").addClass('disabled');
-                                    }
+                                        $('select').material_select();
+                                        $('.modal').modal();
+                                        if (!$('#countrySelection').val()) {
+                                            $('#next').removeClass("waves-effect waves-light submit").addClass('disabled');
+                                        }
 
-                                    $('#countrySelection').change(function () {
-                                    if (this.vaue !== "") {
-                                    $('#next').removeClass("disabled").addClass('waves-effect waves-light submit');
-                                    } else {
-                                    $('#next').removeClass("waves-effect waves-light submit").addClass('disabled');
-                                    }
+                                        $('#countrySelection').change(function () {
+                                            if (this.vaue !== "") {
+                                                $('#next').removeClass("disabled").addClass('waves-effect waves-light submit');
+                                            } else {
+                                                $('#next').removeClass("waves-effect waves-light submit").addClass('disabled');
+                                            }
 
+                                        });
                                     });
-                                    });
-                                    function onNextClick() {
-                                    let country = $("#countrySelection").val();
-                                    let location = [[${issUrl}]]
-                                            + "?t=" + [[${token}]]
-                                            + "&sp=" + [[${sp}]]
-                                            + "&cc=" + country
-                                            + "&saml=eIDAS";
-                                    window.location = location;
-                                    }
 
-                                    function onCancelClick() {
-                                    let failPage = [[${spFailPage}]];
-                                    window.location = failPage;
-                                    }
-                                    function onNextClickUAegean() {
-                                    let location = "http://eidasiss.aegean.gr:8081/ISS2/ldap.jsp?t=${token}" + "&sp=${sp}";
-                                    window.location = location;
-                                    }
                                     function onHomeClick() {
-                                    window.location = [[${server}]];
+                                        let sessionId = document.getElementById('sessionId').value;
+                                        window.location = "/idp/proceedAfterError?sessionId=" + sessionId;
                                     }
 
 

@@ -27,7 +27,7 @@
                 <Env.SP_CONFIG_REPOSITORY>/configEidas/</Env.SP_CONFIG_REPOSITORY>
                 <Env.SP_SECRET>secret</Env.SP_SECRET>
                 <Env.AUTH_DURATION>1800</Env.AUTH_DURATION>
-                <Env.SESSION_MANAGER_URL>http://5.79.83.118:8090</Env.SESSION_MANAGER_URL>
+                <Env.SESSION_MANAGER_URL>http://dss1.aegean.gr:8090</Env.SESSION_MANAGER_URL>
                 <Env.KEY_PASS>selfsignedpass</Env.KEY_PASS>
                 
                 <Env.JWT_CERT_ALIAS>selfsigned</Env.JWT_CERT_ALIAS>
@@ -41,6 +41,13 @@
                 <Env.ESMO_SUPPORTED_SIG_ALGORITHMS>bar</Env.ESMO_SUPPORTED_SIG_ALGORITHMS>
                 <Env.ESMO_SUPPORTED_ENC_ALGORITHMS>bar</Env.ESMO_SUPPORTED_ENC_ALGORITHMS>
                 <Env.ACM_URL>bar</Env.ACM_URL>
+                <Env.NO_EIDAS_PROPERTIES>CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier</Env.NO_EIDAS_PROPERTIES>
+                <Env.NO_AUTH_URL>https://auth.dataporten-test.uninett.no/oauth/authori$</Env.NO_AUTH_URL>
+                <Env.NO_TOKEN_URL>https://auth.dataporten-test.uninett.no/oauth/token</Env.NO_TOKEN_URL>
+                <Env.NO_REDIRECT_URL>http://localhost:8080/idp/oidc</Env.NO_REDIRECT_URL>
+                <Env.NO_CLIENT_ID>0383672b-b749-4d13-8f37-ef0892d5d439</Env.NO_CLIENT_ID>
+                <Env.NO_CLIENT_SECRET>fc1556d5-2a49-44f8-90ac-7be62516922b</Env.NO_CLIENT_SECRET>
+                <Env.NO_USER_INFO_URL>https://auth.dataporten-test.uninett.no/openid/userinfo</Env.NO_USER_INFO_URL>
                 
                 
             </properties>

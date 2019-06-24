@@ -15,13 +15,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.Key;
+import java.security.KeyFactory;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
 import javax.crypto.spec.SecretKeySpec;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,12 +69,23 @@ public class KeyStoreServiceImpl implements KeyStoreService {
 
     }
 
-    public Key getSigningKey() throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException, UnsupportedEncodingException {
+    public Key getHttpSigningKey() throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException, UnsupportedEncodingException {
         //"jwtkey"
         //return keystore.getKey(keyAlias, "keypassword".toCharArray());
         String asyncSignature = paramServ.getParam("ASYNC_SIGNATURE");
         if (!org.springframework.util.StringUtils.isEmpty(asyncSignature) && Boolean.valueOf(asyncSignature)) {
             return keystore.getKey(httpSigKeyAlias, keyPass.toCharArray());
+        }
+        String secretKey = paramServ.getParam("SIGNING_SECRET");
+        return new SecretKeySpec(secretKey.getBytes("UTF-8"), 0, secretKey.length(), "HmacSHA256");
+    }
+
+    public Key getJwtSigningKey() throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableKeyException, UnsupportedEncodingException {
+        //"jwtkey"
+        //return keystore.getKey(keyAlias, "keypassword".toCharArray());
+        String asyncSignature = paramServ.getParam("ASYNC_SIGNATURE");
+        if (!org.springframework.util.StringUtils.isEmpty(asyncSignature) && Boolean.valueOf(asyncSignature)) {
+            return keystore.getKey(jtwKeyAlias, keyPass.toCharArray());
         }
         String secretKey = paramServ.getParam("SIGNING_SECRET");
         return new SecretKeySpec(secretKey.getBytes("UTF-8"), 0, secretKey.length(), "HmacSHA256");
@@ -114,6 +131,15 @@ public class KeyStoreServiceImpl implements KeyStoreService {
             return SignatureAlgorithm.RS256;
         }
         return SignatureAlgorithm.HS256;
+    }
+
+    @Override
+    public String getFingerPrintFromStringPubKey(String pubkey) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        byte[] publicBytes = Base64.getDecoder().decode(pubkey);
+        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        RSAPublicKey key = (RSAPublicKey) keyFactory.generatePublic(keySpec);
+        return DigestUtils.sha256Hex(key.getEncoded());
     }
 
 }

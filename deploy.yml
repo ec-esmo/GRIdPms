@@ -38,6 +38,8 @@ services:
             - ESMO_SUPPORTED_SIG_ALGORITHMS=RSA-SHA256
             - ESMO_SUPPORTED_ENC_ALGORITHMS=RSA-SHA256
             - ACM_URL=http://0.0.0.0:8090 
+            - NO_EIDAS_PROPERTIES=
+            - DATAPORTEN_AUTH_URL=
         volumes:
             - /configEidas:/configEidas
             - /webappConfig:/webappConfig

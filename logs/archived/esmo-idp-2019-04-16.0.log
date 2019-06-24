@@ -1,0 +1,327 @@
+2019-04-16 12:26:58,893 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 15522 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:26:58,895 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:27:01,241 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:27:01,268 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:27:02,115 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:27:02,718 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:27:02,736 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:27:02,754 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 17 ms
+2019-04-16 12:27:02,806 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 4.515 seconds (JVM running for 5.891)
+2019-04-16 12:27:04,837 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:27:26,958 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplication on nikos-Lenovo-V310-15IKB with PID 15620 (/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:27:26,975 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-16 12:27:30,220 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2019-04-16 12:27:30,253 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:27:30,322 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2019-04-16 12:27:30,323 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-16 12:27:30,370 INFO org.apache.juli.logging.DirectJDKLog [main] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-04-16 12:27:30,584 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2019-04-16 12:27:30,585 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3463 ms
+2019-04-16 12:27:30,881 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:27:31,108 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:27:31,624 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:27:32,132 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:27:32,137 INFO org.apache.juli.logging.DirectJDKLog [main] Using a shared selector for servlet write/read
+2019-04-16 12:27:32,196 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-16 12:27:32,221 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplication in 6.209 seconds (JVM running for 7.711)
+2019-04-16 12:28:23,466 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplication on nikos-Lenovo-V310-15IKB with PID 16456 (/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:28:23,473 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-16 12:28:26,266 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2019-04-16 12:28:26,288 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:28:26,340 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2019-04-16 12:28:26,341 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-16 12:28:26,360 INFO org.apache.juli.logging.DirectJDKLog [main] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-04-16 12:28:26,492 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2019-04-16 12:28:26,493 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2914 ms
+2019-04-16 12:28:26,741 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:28:26,765 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:28:27,191 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:28:27,548 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:28:27,551 INFO org.apache.juli.logging.DirectJDKLog [main] Using a shared selector for servlet write/read
+2019-04-16 12:28:27,606 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-16 12:28:27,628 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplication in 5.437 seconds (JVM running for 6.3)
+2019-04-16 12:29:01,016 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-16 12:29:01,016 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2019-04-16 12:29:01,027 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 10 ms
+2019-04-16 12:29:25,463 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplication on nikos-Lenovo-V310-15IKB with PID 16630 (/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:29:25,469 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-16 12:29:27,714 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2019-04-16 12:29:27,744 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:29:27,766 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2019-04-16 12:29:27,766 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-16 12:29:27,784 INFO org.apache.juli.logging.DirectJDKLog [main] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-04-16 12:29:27,910 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2019-04-16 12:29:27,910 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2338 ms
+2019-04-16 12:29:28,244 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:29:28,266 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:29:28,472 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:29:28,902 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:29:29,382 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:29:29,385 INFO org.apache.juli.logging.DirectJDKLog [main] Using a shared selector for servlet write/read
+2019-04-16 12:29:29,464 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-16 12:29:29,496 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplication in 4.787 seconds (JVM running for 5.486)
+2019-04-16 12:29:34,500 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-16 12:29:34,501 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2019-04-16 12:29:34,510 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 9 ms
+2019-04-16 12:29:35,210 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-1] Put 'ad779a31-f334-4350-ab61-16df7124df63' under key 011f068f-e0cc-4b42-993b-14d68d74045d to cache idpms
+2019-04-16 12:29:35,337 ERROR gr.uagean.loginWebApp.controllers.NOControllers [http-nio-8080-exec-1] error getting external session from cache
+2019-04-16 12:29:35,337 ERROR gr.uagean.loginWebApp.controllers.NOControllers [http-nio-8080-exec-1] null
+2019-04-16 12:31:00,444 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 16864 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:31:00,447 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:31:03,004 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:31:03,026 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:31:03,107 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:31:04,098 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:31:04,752 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:31:04,754 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:31:04,764 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 9 ms
+2019-04-16 12:31:04,796 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 5.196 seconds (JVM running for 6.748)
+2019-04-16 12:31:05,980 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:31:41,741 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-9] Put '53e6b249-33b5-461b-bffc-cb1f3eb595ee' under key 978416a2-d3ed-4758-a165-a0f85ee92c73 to cache idpms
+2019-04-16 12:32:19,969 ERROR gr.uagean.loginWebApp.controllers.NOControllers [http-nio-8080-exec-9] error getting external session from cache
+2019-04-16 12:32:19,971 ERROR gr.uagean.loginWebApp.controllers.NOControllers [http-nio-8080-exec-9] null
+2019-04-16 12:32:41,533 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 17046 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:32:41,534 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:32:44,750 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:32:44,803 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:32:44,904 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:32:45,774 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:32:46,481 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:32:46,481 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:32:46,492 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 10 ms
+2019-04-16 12:32:46,528 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 5.706 seconds (JVM running for 7.08)
+2019-04-16 12:32:47,480 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:33:58,867 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-4] Put '418b7d08-0128-43ea-bc5e-06092b53e2a5' under key 6d338510-1524-4598-bd33-a79c65b74935 to cache idpms
+2019-04-16 12:38:47,787 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 17644 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:38:47,789 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:38:50,112 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:38:50,135 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:38:50,209 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:38:50,974 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:38:51,490 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:38:51,490 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:38:51,499 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 8 ms
+2019-04-16 12:38:51,531 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 4.429 seconds (JVM running for 5.596)
+2019-04-16 12:38:52,481 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:39:16,512 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplication on nikos-Lenovo-V310-15IKB with PID 17755 (/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:39:16,519 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-16 12:39:18,941 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2019-04-16 12:39:18,969 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:39:18,989 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2019-04-16 12:39:18,989 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-16 12:39:19,005 INFO org.apache.juli.logging.DirectJDKLog [main] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-04-16 12:39:19,168 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2019-04-16 12:39:19,169 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2537 ms
+2019-04-16 12:39:19,469 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:39:19,622 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:39:19,755 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:39:20,242 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:39:20,776 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:39:20,789 INFO org.apache.juli.logging.DirectJDKLog [main] Using a shared selector for servlet write/read
+2019-04-16 12:39:20,842 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-16 12:39:20,863 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplication in 5.197 seconds (JVM running for 5.857)
+2019-04-16 12:39:48,631 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-16 12:39:48,632 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2019-04-16 12:39:48,643 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 11 ms
+2019-04-16 12:40:05,975 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-1] Put '64ebcc21-bff7-4c95-ba00-70bd7646e5ab' under key ca9cc818-c2d8-4102-873b-ec46a034f691 to cache idpms
+2019-04-16 12:42:28,890 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 18039 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:42:28,897 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:42:31,418 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:42:31,442 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:42:31,545 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:42:32,378 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:42:32,878 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:42:32,878 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:42:32,887 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 8 ms
+2019-04-16 12:42:32,952 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 4.838 seconds (JVM running for 5.949)
+2019-04-16 12:42:33,977 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:42:54,589 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplication on nikos-Lenovo-V310-15IKB with PID 18165 (/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:42:54,596 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-16 12:42:56,552 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2019-04-16 12:42:56,622 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:42:56,684 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2019-04-16 12:42:56,685 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-16 12:42:56,709 INFO org.apache.juli.logging.DirectJDKLog [main] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-04-16 12:42:56,867 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2019-04-16 12:42:56,868 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2191 ms
+2019-04-16 12:42:57,226 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:42:57,251 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:42:57,426 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:42:57,715 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:42:58,070 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:42:58,073 INFO org.apache.juli.logging.DirectJDKLog [main] Using a shared selector for servlet write/read
+2019-04-16 12:42:58,142 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-16 12:42:58,148 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplication in 4.345 seconds (JVM running for 4.893)
+2019-04-16 12:42:59,937 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-16 12:42:59,938 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2019-04-16 12:42:59,955 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 17 ms
+2019-04-16 12:43:11,293 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-1] Put 'd7af460a-66ed-4a7b-9151-9bb3372bcdf5' under key a5b037dc-368e-4947-9167-d0d0c536b0a5 to cache idpms
+2019-04-16 12:43:27,840 ERROR gr.uagean.loginWebApp.controllers.NOControllers [http-nio-8080-exec-1] error getting external session from cache
+2019-04-16 12:43:27,842 ERROR gr.uagean.loginWebApp.controllers.NOControllers [http-nio-8080-exec-1] null
+2019-04-16 12:43:51,237 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 18351 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:43:51,241 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:43:53,733 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:43:53,754 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:43:53,853 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:43:54,915 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:43:55,640 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:43:55,640 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:43:55,665 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 24 ms
+2019-04-16 12:43:55,714 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 5.158 seconds (JVM running for 6.471)
+2019-04-16 12:43:56,658 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:44:27,504 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-3] Put '7b0bfb41-9372-4b10-9e81-925218b0187a' under key f1ddae20-6080-4062-8093-3f64d39cb119 to cache idpms
+2019-04-16 12:45:33,966 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 18579 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:45:33,968 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:45:36,625 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:45:36,669 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:45:36,822 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:45:37,907 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:45:38,526 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:45:38,527 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:45:38,542 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 15 ms
+2019-04-16 12:45:38,597 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 5.308 seconds (JVM running for 6.437)
+2019-04-16 12:45:39,566 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:46:12,579 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplication on nikos-Lenovo-V310-15IKB with PID 18697 (/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:46:12,584 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-16 12:46:15,323 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2019-04-16 12:46:15,354 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:46:15,388 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2019-04-16 12:46:15,388 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-16 12:46:15,433 INFO org.apache.juli.logging.DirectJDKLog [main] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-04-16 12:46:15,651 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2019-04-16 12:46:15,652 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2970 ms
+2019-04-16 12:46:15,917 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:46:15,934 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:46:16,167 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:46:16,537 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:46:17,072 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:46:17,078 INFO org.apache.juli.logging.DirectJDKLog [main] Using a shared selector for servlet write/read
+2019-04-16 12:46:17,144 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-16 12:46:17,175 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplication in 5.624 seconds (JVM running for 6.33)
+2019-04-16 12:46:24,487 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-16 12:46:24,487 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2019-04-16 12:46:24,527 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 39 ms
+2019-04-16 12:46:45,358 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 18891 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:46:45,361 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:46:48,196 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:46:48,332 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:46:48,427 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:46:49,373 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:46:50,132 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:46:50,132 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:46:50,146 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 13 ms
+2019-04-16 12:46:50,250 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 5.44 seconds (JVM running for 6.671)
+2019-04-16 12:46:51,346 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:47:27,610 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-4] Put '9a6b1c48-6421-421d-92b4-d119260f80f1' under key 3513f56a-a8b7-42fb-b595-c8c7f39a20e5 to cache idpms
+2019-04-16 12:48:24,211 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 19135 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:48:24,213 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:48:29,196 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:48:29,233 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:48:29,333 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:48:31,087 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:48:32,493 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:48:32,494 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:48:32,517 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 23 ms
+2019-04-16 12:48:32,623 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 10.054 seconds (JVM running for 12.301)
+2019-04-16 12:48:34,406 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:49:01,386 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-8] Put '551189e2-5249-4f1d-8f5a-e96efd653d77' under key b1ecc73c-9b5d-4a01-951e-f21a8ba01d50 to cache idpms
+2019-04-16 12:49:22,448 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplication on nikos-Lenovo-V310-15IKB with PID 19329 (/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:49:22,465 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-16 12:49:30,788 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2019-04-16 12:49:30,884 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:49:30,965 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2019-04-16 12:49:30,966 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-16 12:49:31,012 INFO org.apache.juli.logging.DirectJDKLog [main] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-04-16 12:49:31,729 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2019-04-16 12:49:31,730 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 8872 ms
+2019-04-16 12:49:32,598 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:49:33,158 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:49:33,608 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:49:34,585 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:49:35,502 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:49:35,508 INFO org.apache.juli.logging.DirectJDKLog [main] Using a shared selector for servlet write/read
+2019-04-16 12:49:35,747 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-16 12:49:35,777 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplication in 15.627 seconds (JVM running for 17.368)
+2019-04-16 12:49:37,750 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 19415 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:49:37,752 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:49:42,314 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:49:42,384 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:49:42,490 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:49:43,777 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:49:45,013 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:49:45,014 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:49:45,047 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 21 ms
+2019-04-16 12:49:45,121 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 8.936 seconds (JVM running for 12.625)
+2019-04-16 12:49:46,846 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:50:10,451 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-16 12:50:10,451 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-3] Initializing Servlet 'dispatcherServlet'
+2019-04-16 12:50:10,484 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-3] Completed initialization in 33 ms
+2019-04-16 12:50:13,350 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-3] Put 'b84ff09d-4dad-467a-bf6a-b52224d6ed6c' under key b5a8a73b-ad13-4ad8-a02b-01b6da91d408 to cache idpms
+2019-04-16 12:51:05,758 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplication on nikos-Lenovo-V310-15IKB with PID 19673 (/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:51:05,795 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-16 12:51:11,471 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2019-04-16 12:51:11,522 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:51:11,607 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2019-04-16 12:51:11,608 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-04-16 12:51:11,667 INFO org.apache.juli.logging.DirectJDKLog [main] The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/lib/jvm/java-8-oracle/jre/lib/amd64:/usr/lib/jvm/java-8-oracle/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-04-16 12:51:12,041 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2019-04-16 12:51:12,042 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 5911 ms
+2019-04-16 12:51:12,395 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:51:12,642 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:51:12,825 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:51:13,208 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:51:13,979 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2019-04-16 12:51:13,982 INFO org.apache.juli.logging.DirectJDKLog [main] Using a shared selector for servlet write/read
+2019-04-16 12:51:14,129 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-16 12:51:14,137 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplication in 10.137 seconds (JVM running for 11.469)
+2019-04-16 12:51:14,476 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 19739 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:51:14,478 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:51:16,759 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:51:16,781 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:51:16,868 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:51:17,552 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:51:18,059 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:51:18,060 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:51:18,075 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 14 ms
+2019-04-16 12:51:18,113 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 4.811 seconds (JVM running for 7.616)
+2019-04-16 12:51:19,289 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:51:46,570 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-16 12:51:46,571 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2019-04-16 12:51:46,593 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 21 ms
+2019-04-16 12:51:49,719 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-1] Put '75700f3b-9689-4502-8689-83264b9304dd' under key e928ef0f-9e33-4ccb-a320-ca33b83c7cf5 to cache idpms
+2019-04-16 12:58:08,996 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 20302 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 12:58:08,999 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 12:58:12,148 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 12:58:12,173 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 12:58:12,248 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 12:58:12,841 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:58:13,948 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 12:58:13,949 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 12:58:13,963 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 14 ms
+2019-04-16 12:58:14,033 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 5.682 seconds (JVM running for 6.631)
+2019-04-16 12:58:15,189 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 12:58:45,775 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-4] Put '3e5f86ef-136a-4e2e-895e-e9f259478268' under key 02f506c9-8218-4e2b-895d-abd8ab987ea3 to cache idpms
+2019-04-16 13:01:37,341 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 20823 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 13:01:37,343 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 13:01:39,397 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 13:01:39,423 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 13:01:39,500 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 13:01:40,218 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 13:01:41,145 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 13:01:41,146 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 13:01:41,177 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 30 ms
+2019-04-16 13:01:41,233 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 4.744 seconds (JVM running for 5.823)
+2019-04-16 13:01:42,312 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 13:02:05,565 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-9] Put '1874ed31-ffe7-4bc4-acea-aab88b851642' under key d0e1cb1f-d744-4a8f-abaa-749bd7f76125 to cache idpms
+2019-04-16 13:12:42,977 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 21987 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-04-16 13:12:42,980 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-04-16 13:12:45,906 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-04-16 13:12:45,952 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-04-16 13:12:46,050 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.LOG
+2019-04-16 13:12:47,107 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-16 13:12:47,987 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-04-16 13:12:47,988 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-04-16 13:12:48,001 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 13 ms
+2019-04-16 13:12:48,034 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 5.633 seconds (JVM running for 6.871)
+2019-04-16 13:12:49,200 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-16 13:13:11,481 INFO com.google.code.ssm.spring.SSMCache [http-nio-8080-exec-2] Put '69835f1b-e197-4009-a37c-115606aa4714' under key cfe8a4c9-613d-4a84-99ee-3ccf81f148b8 to cache idpms

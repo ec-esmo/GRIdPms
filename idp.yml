@@ -4,7 +4,7 @@ services:
     
     
     IdPMS:
-        image: endimion13/esmo-idp-gr:0.0.3
+        image: endimion13/esmo-idp-gr-no:0.1.9
         environment:
             - KEYSTORE_PATH=/resources/testKeys/keystore.jks
             - KEY_PASS=selfsignedpass
@@ -15,43 +15,37 @@ services:
             - ASYNC_SIGNATURE=true
             - EXPIRES=5
             - CONFIG_JSON=/resources/configurationResponse.json
-#            - ACM_URL=http://5.79.83.118:8080
             - ACM_ID=ACMms001
-#            - SESSION_MANAGER_URL=http://172.17.0.1:8090
-            - SESSION_MANAGER_URL=http://5.79.83.118:8090
-            - CONFIGURATION_MANAGER_URL=http://5.79.83.118:8080
+            - SESSION_MANAGER_URL=http://dss1.aegean.gr:8090
+#            - SESSION_MANAGER_URL=http://5.79.83.118:8090
+            - CONFIGURATION_MANAGER_URL=http://dss1.aegean.gr:8080
+#            - CONFIGURATION_MANAGER_URL=http://5.79.83.118:8080
             - MEMCACHED_HOST=172.17.0.1
             - MEMCACHED_PORT=11211
             - ESMO_SUPPORTED_SIG_ALGORITHMS=RSA
             - ESMO_SUPPORTED_ENC_ALGORITHMS=RSA
             - REDIRECT_JWT_SENDER=IdPms001
             - REDIRECT_JWT_RECEIVER=ACMms001
-            
             - SP_CONFIG_REPOSITORY=/configEidas/
+            - EIDAS_NODE_URL=https://pre.eidas.gov.gr/EidasNode/ServiceProvider
             - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
-            - SP_METADATA_URL=http://165.227.151.145:8091/metadata
-            - SP_RETURN_URL=http://165.227.151.145:8091/eidasResponse
-            - EIDAS_NODE_URL=https://eidas.gov.gr/EidasNode/ServiceProvider    
-            
-
-            - SP_SUCCESS_PAGE=https://www.e-post.gr/portalRedirect.jsp
-            - SP_CONFIG_REPOSITORY=/configEidas/
-            - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+            - NO_EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+            - NO_AUTH_URL=https://auth.dataporten-test.uninett.no/oauth/authorization?
+            - NO_TOKEN_URL=https://auth.dataporten-test.uninett.no/oauth/token
+            - NO_RETURN_URL=http://dss.aegean.gr:8092/idp/oidc
+            - NO_CLIENT_ID=0383672b-b749-4d13-8f37-ef0892d5d439
+            - NO_CLIENT_SECRET=fc1556d5-2a49-44f8-90ac-7be62516922b
+            - NO_USER_INFO_URL=https://auth.dataporten-test.uninett.no/openid/userinfo
             - SP_COUNTRY=GR
-            - EIDAS_NODE_URL=http://84.205.248.180/EidasNode/ServiceProvider/
-      
 
-            
-         
-            
-
-            
-            
         volumes:
             - /home/nikos/NetBeansProjects/esmo.gr.idp/src/test/resources:/resources
             - /webappConfig:/webappConfig
+            - /home/nikos/esmo-ap-logs:/logs
+            - /configEidas:/configEidas
         ports:
           - 8091:8080
+          - 8443:8443
         
 
  

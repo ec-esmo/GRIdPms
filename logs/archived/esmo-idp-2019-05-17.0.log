@@ -1,0 +1,564 @@
+2019-05-17 11:31:24,545 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplicationTests on nikos-Lenovo-V310-15IKB with PID 8443 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 11:31:24,551 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 11:31:28,105 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 11:31:28,224 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 11:31:28,446 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 11:31:28,459 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 11:31:29,621 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 11:31:30,784 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplicationTests in 7.05 seconds (JVM running for 8.261)
+2019-05-17 11:31:30,892 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection], using SpringBootContextLoader
+2019-05-17 11:31:30,908 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-05-17 11:31:30,942 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-17 11:31:30,944 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3f1ed068, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@753aca85, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2e645fbd, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@574a89e2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1e1e9ef3, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3dd31157, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@31c628e7, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3240b2a4, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@58434b19, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7d3fb0ef]
+2019-05-17 11:31:31,017 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 8443 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 11:31:31,018 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 11:31:31,621 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 11:31:31,634 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 11:31:31,686 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 11:31:31,729 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 11:31:32,179 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 11:31:32,651 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 11:31:32,652 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 11:31:32,670 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 17 ms
+2019-05-17 11:31:32,698 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 1.749 seconds (JVM running for 10.175)
+2019-05-17 11:31:34,939 ERROR gr.uagean.loginWebApp.controllers.FakeRestControllers [main] ERROR: calcualted matching sender ids do not include the jwt recipient! IdPms001
+2019-05-17 11:31:35,486 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-3] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 11:31:35,492 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-7] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 11:34:53,135 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 8603 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 11:34:53,137 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 11:34:55,987 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 11:34:56,014 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 11:34:56,094 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 11:34:56,114 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 11:34:57,297 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 11:34:58,220 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 11:34:58,220 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 11:34:58,238 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 17 ms
+2019-05-17 11:34:58,297 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 5.993 seconds (JVM running for 7.295)
+2019-05-17 12:08:35,685 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 10623 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:08:35,688 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:08:38,875 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:08:38,905 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:08:39,042 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:08:39,060 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:08:40,089 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:08:41,024 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 12:08:41,025 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 12:08:41,061 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 22 ms
+2019-05-17 12:08:41,134 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 6.351 seconds (JVM running for 7.891)
+2019-05-17 12:08:41,674 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:10:04,615 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 10720 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:10:04,617 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:10:06,814 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:10:06,842 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:10:06,928 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:10:06,941 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:10:07,717 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:10:08,307 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 12:10:08,307 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 12:10:08,322 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 14 ms
+2019-05-17 12:10:08,379 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 4.353 seconds (JVM running for 5.29)
+2019-05-17 12:10:08,986 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:42:55,069 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplicationTests on nikos-Lenovo-V310-15IKB with PID 12779 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:42:55,071 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:42:57,224 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:42:57,251 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:42:57,320 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:42:57,333 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:42:58,075 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:42:58,542 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplicationTests in 4.025 seconds (JVM running for 5.093)
+2019-05-17 12:42:58,585 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection], using SpringBootContextLoader
+2019-05-17 12:42:58,586 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-05-17 12:42:58,601 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-17 12:42:58,602 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4437ac07, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3f1ed068, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@753aca85, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2e645fbd, org.springframework.test.context.support.DirtiesContextTestExecutionListener@574a89e2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1e1e9ef3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3dd31157, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@31c628e7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3240b2a4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@58434b19]
+2019-05-17 12:42:58,651 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 12779 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:42:58,651 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:42:59,051 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:42:59,057 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:42:59,083 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:42:59,090 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:42:59,446 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:42:59,731 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 12:42:59,732 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 12:42:59,748 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 15 ms
+2019-05-17 12:42:59,767 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 1.162 seconds (JVM running for 6.317)
+2019-05-17 12:43:02,619 ERROR gr.uagean.loginWebApp.controllers.FakeRestControllers [main] ERROR: calcualted matching sender ids do not include the jwt recipient! IdPms001
+2019-05-17 12:43:03,136 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-3] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:43:03,138 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-7] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:46:14,878 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 12925 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:46:14,880 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:50:57,190 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 13072 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:50:57,199 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:51:10,910 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'fakeRestControllers' defined in file [/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes/gr/uagean/loginWebApp/controllers/FakeRestControllers.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.controllers.FakeRestControllers]: Constructor threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - getFingerPrint() in gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot implement getFingerPrint() in gr.uagean.loginWebApp.service.KeyStoreService
+  overridden method does not throw java.io.UnsupportedEncodingException
+2019-05-17 12:51:11,019 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-05-17 12:51:11,050 ERROR org.springframework.boot.SpringApplication [main] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'fakeRestControllers' defined in file [/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes/gr/uagean/loginWebApp/controllers/FakeRestControllers.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.controllers.FakeRestControllers]: Constructor threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - getFingerPrint() in gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot implement getFingerPrint() in gr.uagean.loginWebApp.service.KeyStoreService
+  overridden method does not throw java.io.UnsupportedEncodingException
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:304)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:285)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1308)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1154)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.controllers.FakeRestControllers]: Constructor threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - getFingerPrint() in gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot implement getFingerPrint() in gr.uagean.loginWebApp.service.KeyStoreService
+  overridden method does not throw java.io.UnsupportedEncodingException
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:184)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:300)
+	... 45 common frames omitted
+Caused by: java.lang.RuntimeException: Uncompilable source code - getFingerPrint() in gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot implement getFingerPrint() in gr.uagean.loginWebApp.service.KeyStoreService
+  overridden method does not throw java.io.UnsupportedEncodingException
+	at gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl.getFingerPrint(KeyStoreServiceImpl.java:145)
+	at gr.uagean.loginWebApp.controllers.FakeRestControllers.<init>(FakeRestControllers.java:83)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:172)
+	... 47 common frames omitted
+2019-05-17 12:51:11,064 ERROR org.springframework.test.context.TestContextManager [main] Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@69f1a286] to prepare test instance [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection@4a058df8]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'fakeRestControllers' defined in file [/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes/gr/uagean/loginWebApp/controllers/FakeRestControllers.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.controllers.FakeRestControllers]: Constructor threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - getFingerPrint() in gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot implement getFingerPrint() in gr.uagean.loginWebApp.service.KeyStoreService
+  overridden method does not throw java.io.UnsupportedEncodingException
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:304)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:285)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1308)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1154)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 27 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.controllers.FakeRestControllers]: Constructor threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - getFingerPrint() in gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot implement getFingerPrint() in gr.uagean.loginWebApp.service.KeyStoreService
+  overridden method does not throw java.io.UnsupportedEncodingException
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:184)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:300)
+	... 45 common frames omitted
+Caused by: java.lang.RuntimeException: Uncompilable source code - getFingerPrint() in gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot implement getFingerPrint() in gr.uagean.loginWebApp.service.KeyStoreService
+  overridden method does not throw java.io.UnsupportedEncodingException
+	at gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl.getFingerPrint(KeyStoreServiceImpl.java:145)
+	at gr.uagean.loginWebApp.controllers.FakeRestControllers.<init>(FakeRestControllers.java:83)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:172)
+	... 47 common frames omitted
+2019-05-17 12:52:21,906 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplicationTests on nikos-Lenovo-V310-15IKB with PID 13201 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:52:21,923 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:52:24,221 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:52:24,247 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:52:24,336 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:52:24,347 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:52:25,073 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:52:25,553 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplicationTests in 4.208 seconds (JVM running for 5.263)
+2019-05-17 12:52:25,595 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection], using SpringBootContextLoader
+2019-05-17 12:52:25,597 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-05-17 12:52:25,626 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-17 12:52:25,634 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@753aca85, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2e645fbd, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@574a89e2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1e1e9ef3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3dd31157, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@31c628e7, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3240b2a4, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@58434b19, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7d3fb0ef, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7dbe2ebf]
+2019-05-17 12:52:25,685 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 13201 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:52:25,685 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:52:26,078 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:52:26,088 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:52:26,110 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:52:26,120 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:52:26,521 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:52:26,774 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 12:52:26,774 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 12:52:26,789 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 14 ms
+2019-05-17 12:52:26,804 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 1.168 seconds (JVM running for 6.514)
+2019-05-17 12:52:29,077 ERROR gr.uagean.loginWebApp.controllers.FakeRestControllers [main] ERROR: calcualted matching sender ids do not include the jwt recipient! IdPms001
+2019-05-17 12:52:29,552 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-7] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:52:29,556 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-3] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:55:23,694 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 13344 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:55:23,697 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:55:25,755 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:55:25,784 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:55:25,869 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:55:25,880 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:55:26,692 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:55:27,267 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 12:55:27,268 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 12:55:27,285 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 17 ms
+2019-05-17 12:55:27,324 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 4.119 seconds (JVM running for 5.204)
+2019-05-17 12:55:27,739 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:55:53,497 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplicationTests on nikos-Lenovo-V310-15IKB with PID 13432 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:55:53,500 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:55:55,639 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:55:55,670 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:55:55,742 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:55:55,756 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:55:56,551 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:55:57,009 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplicationTests in 4.285 seconds (JVM running for 5.543)
+2019-05-17 12:55:57,048 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection], using SpringBootContextLoader
+2019-05-17 12:55:57,050 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-05-17 12:55:57,076 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-17 12:55:57,078 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@753aca85, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2e645fbd, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@574a89e2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1e1e9ef3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3dd31157, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@31c628e7, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3240b2a4, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@58434b19, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7d3fb0ef, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7dbe2ebf]
+2019-05-17 12:55:57,115 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 13432 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:55:57,116 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:55:57,620 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:55:57,628 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:55:57,656 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:55:57,669 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:55:58,034 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:55:58,315 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 12:55:58,316 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 12:55:58,333 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 16 ms
+2019-05-17 12:55:58,356 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 1.27 seconds (JVM running for 6.89)
+2019-05-17 12:56:00,689 ERROR gr.uagean.loginWebApp.controllers.FakeRestControllers [main] ERROR: calcualted matching sender ids do not include the jwt recipient! IdPms001
+2019-05-17 12:56:01,198 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-7] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:56:01,201 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-3] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:58:53,445 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 13574 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 12:58:53,447 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 12:59:20,234 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 12:59:20,302 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 12:59:21,862 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 12:59:23,140 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 12:59:24,099 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 12:59:24,700 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 12:59:24,702 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 12:59:24,721 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 18 ms
+2019-05-17 12:59:24,775 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 31.99 seconds (JVM running for 33.223)
+2019-05-17 12:59:53,126 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 13:01:01,534 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 13685 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 13:01:01,536 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 13:02:26,342 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 13:02:26,494 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 13:02:44,879 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 13:03:02,267 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 13:03:08,027 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 13:03:12,236 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 13:03:12,237 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 13:03:12,351 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 113 ms
+2019-05-17 13:03:12,747 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 131.904 seconds (JVM running for 133.39)
+2019-05-17 13:03:36,682 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 13:10:24,045 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 13941 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 13:10:24,047 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 13:10:26,159 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 13:10:26,186 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 13:10:26,275 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 13:10:26,296 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 13:10:27,089 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 13:10:27,573 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 13:10:27,574 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 13:10:27,591 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 17 ms
+2019-05-17 13:10:27,630 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 4.158 seconds (JVM running for 5.054)
+2019-05-17 13:10:28,185 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 13:12:29,977 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 14074 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 13:12:29,982 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 13:12:32,441 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 13:12:32,468 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 13:12:32,574 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 13:12:32,594 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 13:12:33,464 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 13:12:34,446 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 13:12:34,447 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 13:12:34,465 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 17 ms
+2019-05-17 13:12:34,515 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 5.237 seconds (JVM running for 6.321)
+2019-05-17 13:12:45,958 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-4] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 14:17:15,232 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 16416 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 14:17:15,236 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 14:17:17,344 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fakeRestControllers' defined in file [/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes/gr/uagean/loginWebApp/controllers/FakeRestControllers.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'keyStoreService' defined in gr.uagean.loginWebApp.TestRestControllersConfig: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.service.KeyStoreService]: Factory method 'keyStoreService' threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - incompatible types: gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot be converted to gr.uagean.loginWebApp.service.KeyStoreService
+2019-05-17 14:17:17,363 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-05-17 14:17:17,372 ERROR org.springframework.boot.SpringApplication [main] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fakeRestControllers' defined in file [/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes/gr/uagean/loginWebApp/controllers/FakeRestControllers.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'keyStoreService' defined in gr.uagean.loginWebApp.TestRestControllersConfig: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.service.KeyStoreService]: Factory method 'keyStoreService' threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - incompatible types: gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot be converted to gr.uagean.loginWebApp.service.KeyStoreService
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1308)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1154)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'keyStoreService' defined in gr.uagean.loginWebApp.TestRestControllersConfig: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.service.KeyStoreService]: Factory method 'keyStoreService' threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - incompatible types: gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot be converted to gr.uagean.loginWebApp.service.KeyStoreService
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:456)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1237)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+	... 45 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.service.KeyStoreService]: Factory method 'keyStoreService' threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - incompatible types: gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot be converted to gr.uagean.loginWebApp.service.KeyStoreService
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 59 common frames omitted
+Caused by: java.lang.RuntimeException: Uncompilable source code - incompatible types: gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot be converted to gr.uagean.loginWebApp.service.KeyStoreService
+	at gr.uagean.loginWebApp.TestRestControllersConfig.keyStoreService(TestRestControllersConfig.java:72)
+	at gr.uagean.loginWebApp.TestRestControllersConfig$$EnhancerBySpringCGLIB$$90164799.CGLIB$keyStoreService$1(<generated>)
+	at gr.uagean.loginWebApp.TestRestControllersConfig$$EnhancerBySpringCGLIB$$90164799$$FastClassBySpringCGLIB$$4cc7eb71.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at gr.uagean.loginWebApp.TestRestControllersConfig$$EnhancerBySpringCGLIB$$90164799.keyStoreService(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 60 common frames omitted
+2019-05-17 14:17:17,379 ERROR org.springframework.test.context.TestContextManager [main] Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@40a4337a] to prepare test instance [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection@756b58a7]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fakeRestControllers' defined in file [/home/nikos/NetBeansProjects/esmo.gr.idp/target/classes/gr/uagean/loginWebApp/controllers/FakeRestControllers.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'keyStoreService' defined in gr.uagean.loginWebApp.TestRestControllersConfig: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.service.KeyStoreService]: Factory method 'keyStoreService' threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - incompatible types: gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot be converted to gr.uagean.loginWebApp.service.KeyStoreService
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:769)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:218)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1308)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1154)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 27 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'keyStoreService' defined in gr.uagean.loginWebApp.TestRestControllersConfig: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.service.KeyStoreService]: Factory method 'keyStoreService' threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - incompatible types: gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot be converted to gr.uagean.loginWebApp.service.KeyStoreService
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:456)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1237)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:857)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:760)
+	... 45 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [gr.uagean.loginWebApp.service.KeyStoreService]: Factory method 'keyStoreService' threw exception; nested exception is java.lang.RuntimeException: Uncompilable source code - incompatible types: gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot be converted to gr.uagean.loginWebApp.service.KeyStoreService
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 59 common frames omitted
+Caused by: java.lang.RuntimeException: Uncompilable source code - incompatible types: gr.uagean.loginWebApp.service.impl.KeyStoreServiceImpl cannot be converted to gr.uagean.loginWebApp.service.KeyStoreService
+	at gr.uagean.loginWebApp.TestRestControllersConfig.keyStoreService(TestRestControllersConfig.java:72)
+	at gr.uagean.loginWebApp.TestRestControllersConfig$$EnhancerBySpringCGLIB$$90164799.CGLIB$keyStoreService$1(<generated>)
+	at gr.uagean.loginWebApp.TestRestControllersConfig$$EnhancerBySpringCGLIB$$90164799$$FastClassBySpringCGLIB$$4cc7eb71.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at gr.uagean.loginWebApp.TestRestControllersConfig$$EnhancerBySpringCGLIB$$90164799.keyStoreService(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 60 common frames omitted
+2019-05-17 14:18:19,040 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplicationTests on nikos-Lenovo-V310-15IKB with PID 16511 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 14:18:19,043 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 14:18:21,271 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 14:18:21,298 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 14:18:21,410 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 14:18:21,443 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 14:18:22,167 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 14:18:22,688 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplicationTests in 4.17 seconds (JVM running for 5.615)
+2019-05-17 14:18:22,731 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection], using SpringBootContextLoader
+2019-05-17 14:18:22,732 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-05-17 14:18:22,748 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-17 14:18:22,750 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@a2341c6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6e4c0d8c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3e3315d9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@64db4967, org.springframework.test.context.support.DirtiesContextTestExecutionListener@74e6094b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7a485a36, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5cf3157b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@625dfff3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@26350ea2, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1e9469b8]
+2019-05-17 14:18:22,786 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 16511 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 14:18:22,787 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 14:18:23,138 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 14:18:23,143 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 14:18:23,171 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 14:18:23,187 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 14:18:23,501 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 14:18:23,798 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 14:18:23,799 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 14:18:23,812 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 13 ms
+2019-05-17 14:18:23,834 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 1.081 seconds (JVM running for 6.761)
+2019-05-17 14:18:28,298 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-7] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 14:18:28,298 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-3] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 14:19:05,626 INFO org.springframework.boot.StartupInfoLogger [main] Starting LoginWebAppApplicationTests on nikos-Lenovo-V310-15IKB with PID 16617 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 14:19:05,629 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 14:19:07,702 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 14:19:07,727 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 14:19:07,809 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 14:19:07,835 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 14:19:08,658 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 14:19:09,187 INFO org.springframework.boot.StartupInfoLogger [main] Started LoginWebAppApplicationTests in 4.168 seconds (JVM running for 5.219)
+2019-05-17 14:19:09,231 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection], using SpringBootContextLoader
+2019-05-17 14:19:09,232 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [gr.uaegean.loginWebApp.integration.TestSessisonManagerConnection]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-05-17 14:19:09,245 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-17 14:19:09,246 INFO org.springframework.test.context.support.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2d3ef181, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@a2341c6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6e4c0d8c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3e3315d9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@64db4967, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@74e6094b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7a485a36, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5cf3157b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@625dfff3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@26350ea2]
+2019-05-17 14:19:09,274 INFO org.springframework.boot.StartupInfoLogger [main] Starting TestSessisonManagerConnection on nikos-Lenovo-V310-15IKB with PID 16617 (started by nikos in /home/nikos/NetBeansProjects/esmo.gr.idp)
+2019-05-17 14:19:09,274 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2019-05-17 14:19:09,828 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.GRControllers.LOG
+2019-05-17 14:19:09,834 INFO com.google.code.ssm.config.DefaultAddressProvider [main] Defined values 172.17.0.1:11211 will be used as memcached addresses
+2019-05-17 14:19:09,864 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.NOControllers.LOG
+2019-05-17 14:19:09,882 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [main] Autowired annotation is not supported on static fields: private static final org.slf4j.Logger gr.uagean.loginWebApp.controllers.RestControllers.Log
+2019-05-17 14:19:10,294 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-17 14:19:10,627 INFO org.springframework.mock.web.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2019-05-17 14:19:10,628 INFO org.springframework.web.servlet.FrameworkServlet [main] Initializing Servlet ''
+2019-05-17 14:19:10,646 INFO org.springframework.web.servlet.FrameworkServlet [main] Completed initialization in 18 ms
+2019-05-17 14:19:10,668 INFO org.springframework.boot.StartupInfoLogger [main] Started TestSessisonManagerConnection in 1.419 seconds (JVM running for 6.7)
+2019-05-17 14:19:14,525 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-3] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-17 14:19:14,529 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-7] Shutting down ExecutorService 'applicationTaskExecutor'

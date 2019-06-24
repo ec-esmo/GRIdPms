@@ -41,7 +41,7 @@ public class testAttributeSetFactory {
         attributes.add(attr);
         attributes.add(attr2);
 
-        AttributeSet attrSet = AttributeSetFactory.make("testId", TypeEnum.Request, "issuer", "recipient", attributes, new HashMap());
+        AttributeSet attrSet = AttributeSetFactory.make("testId", TypeEnum.REQUEST, "issuer", "recipient", attributes, new HashMap());
         assertEquals(attrSet.getAttributes()[0].getValues()[0],"value1");
         assertEquals(attrSet.getAttributes()[1].getValues()[0],"value12");
         
