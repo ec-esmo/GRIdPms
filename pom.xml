@@ -147,7 +147,13 @@
             <artifactId>httpSig</artifactId>
             <version>1.0</version>
         </dependency>
-       
+        <dependency>
+            <groupId>minEdu</groupId>
+            <artifactId>mineduAES</artifactId>
+            <version>1.0</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
 

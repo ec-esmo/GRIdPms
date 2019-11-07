@@ -152,3 +152,7 @@ main{
 .progress .indeterminate {
     background-color: #aed6e6!important;
 }
+
+.select-wrapper li span {
+    color: blue;
+}
